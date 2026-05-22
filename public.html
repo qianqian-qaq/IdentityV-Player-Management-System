@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五人格比赛数据统计系统 V7（公开版-只读）</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; min-height: 100vh; padding: 20px; overflow-y: auto; overflow-x: hidden; }
+        .container { max-width: 1400px; margin: 0 auto; padding-bottom: 100px; }}
+        h1 { text-align: center; color: #e94560; margin-bottom: 20px; font-size: 2em; }
+        h2 { color: #fff; background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); padding: 12px 20px; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; }
+        h3 { color: #e94560; margin: 15px 0 10px 0; padding-bottom: 8px; border-bottom: 2px solid #0f3460; }
+        h4 { color: #e94560; margin: 10px 0 8px 0; font-size: 14px; }
+        .card { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; color: #e94560; font-weight: bold; font-size: 13px; }
+        input, select { width: 100%; padding: 10px; border: 2px solid #0f3460; border-radius: 8px; background: rgba(255, 255, 255, 0.95); color: #1a1a2e; font-size: 13px; }
+        input:focus, select:focus { outline: none; border-color: #e94560; }
+        .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+        button { background: linear-gradient(135deg, #e94560 0%, #0f3460 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; margin-right: 8px; margin-bottom: 8px; }
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4); }
+        button.secondary { background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%); }
+        button.success { background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); }
+        button.danger { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); }
+        button.warning { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        button.small { padding: 6px 12px; font-size: 12px; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .tabs { display: flex; border-bottom: 2px solid #0f3460; margin-bottom: 15px; flex-wrap: wrap; }
+        .tab { padding: 12px 24px; cursor: pointer; background: transparent; color: #fff; border: none; border-bottom: 3px solid transparent; transition: all 0.3s; font-size: 14px; margin: 0; }
+        .tab.active { border-bottom-color: #e94560; color: #e94560; }
+        .tab:hover { color: #e94560; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+        th, td { padding: 8px 6px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); }
+        th { background: rgba(233, 69, 96, 0.3); color: #fff; font-weight: bold; font-size: 11px; }
+        td { background: rgba(255, 255, 255, 0.05); }
+        tr:hover td { background: rgba(233, 69, 96, 0.1); }
+        .round-node { background: rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 15px; margin: 10px 0; border-left: 4px solid #e94560; }
+        .round-node.overtime { border-left-color: #f39c12; }
+        .round-title { font-size: 14px; color: #e94560; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .round-type-badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; margin-left: 8px; }
+        .round-type-normal { background: #0f3460; color: #fff; }
+        .round-type-overtime { background: #f39c12; color: #1a1a2e; }
+        .half-section { background: rgba(0, 0, 0, 0.15); border-radius: 8px; padding: 12px; margin: 10px 0; }
+        .half-title { font-size: 13px; color: #f39c12; margin-bottom: 8px; font-weight: bold; }
+        .mvp-badge { background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%); padding: 4px 12px; border-radius: 15px; font-size: 12px; color: #fff; }
+        .match-info-bar { background: rgba(0, 0, 0, 0.3); padding: 10px 15px; border-radius: 8px; margin: 10px 0; display: flex; flex-wrap: wrap; gap: 20px; }
+        .match-info-item { display: flex; align-items: center; gap: 8px; }
+        .match-info-label { color: #aaa; font-size: 12px; }
+        .match-info-value { color: #fff; font-weight: bold; font-size: 13px; }
+        .notification { position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); z-index: 1000; animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .team-card { background: rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 15px; margin: 10px 0; border-left: 4px solid #e94560; }
+        .team-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .team-name { font-size: 16px; font-weight: bold; color: #e94560; cursor: pointer; }
+        .team-name:hover { text-decoration: underline; }
+        .player-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .player-tag { display: inline-flex; align-items: center; background: rgba(233, 69, 96, 0.2); padding: 6px 12px; border-radius: 5px; font-size: 13px; }
+        .player-tag button { margin-left: 8px; margin-right: 0; }
+        .match-history-item { background: rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 15px; margin: 10px 0; border-left: 4px solid #0f3460; }
+        .hint { color: #aaa; font-size: 12px; margin-top: 5px; }
+        .mvp-selector { background: rgba(243, 156, 18, 0.2); border: 2px solid #f39c12; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        .mvp-selector label { color: #f39c12; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: flex-start; padding: 50px 20px; z-index: 1000; overflow-y: auto; }
+        .modal { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 15px; padding: 25px; max-width: 95%; width: 900px; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #0f3460; position: sticky; top: 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); z-index: 10; }
+        .modal-title { color: #e94560; font-size: 18px; font-weight: bold; }
+        .modal-close { background: transparent; color: #fff; font-size: 24px; padding: 0; margin: 0; cursor: pointer; }
+        .modal-close:hover { color: #e94560; transform: none; box-shadow: none; }
+        .modal-body { margin-bottom: 20px; }
+        .modal-footer { display: flex; justify-content: flex-end; gap: 10px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .collapsed { display: none; }
+        .add-player-inline { display: flex; gap: 10px; margin-top: 10px; }
+        .add-player-inline input { flex: 1; }
+        .role-select { width: 80px; padding: 4px; font-size: 11px; }
+        .role-survivor { background: #27ae60 !important; color: white !important; }
+        .role-hunter { background: #e74c3c !important; color: white !important; }
+        .role-none { background: #95a5a6 !important; color: white !important; }
+        .stat-input { width: 55px; padding: 4px; font-size: 11px; -moz-appearance: textfield; }
+        .stat-input::-webkit-outer-spin-button,
+        .stat-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .stat-cell { padding: 4px 2px; }
+        .hunter-stats { background: rgba(231, 76, 60, 0.1); }
+        .survivor-stats { background: rgba(39, 174, 96, 0.1); }
+        .player-name-cell { text-align: left; padding-left: 8px; min-width: 70px; }
+        .stats-row-hunter { background: rgba(231, 76, 60, 0.05); }
+        .stats-row-survivor { background: rgba(39, 174, 96, 0.05); }
+        .stats-row-none { background: rgba(149, 165, 166, 0.1); }
+        .readonly-banner { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); color: #1a1a2e; text-align: center; padding: 12px 20px; border-radius: 10px; margin-bottom: 15px; font-weight: bold; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .readonly-banner .icon { font-size: 18px; }
+        .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); display: flex; justify-content: center; align-items: center; z-index: 9999; flex-direction: column; gap: 20px; }
+        .loading-spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.2); border-top: 4px solid #e94560; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { color: #e94560; font-size: 16px; font-weight: bold; }
+        @media (max-width: 768px) { .row { grid-template-columns: 1fr; } .tabs { flex-wrap: wrap; } .tab { flex: 1; text-align: center; } }
+    </style>
+</head>
+<body>
+    <!-- 加载遮罩 -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">正在加载比赛数据...</div>
+    </div>
+    <div class="container">
+        <h1>第五人格比赛数据统计系统 V7</h1>
+        <div class="readonly-banner"><span class="icon">🔒</span> 公开版 — 仅可查看数据，不可修改。数据来源于管理员维护的共享数据源。</div>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('events')">赛程管理</div>
+            <div class="tab" onclick="switchTab('teamManage')">队伍管理</div>
+            <div class="tab" onclick="switchTab('matchCreate')">创建比赛</div>
+            <div class="tab" onclick="switchTab('stats')">选手统计</div>
+            <div class="tab" onclick="switchTab('radar')">维度图</div>
+            <div class="tab" onclick="switchTab('history')">比赛记录</div>
+        </div>
+
+        <!-- 赛程管理 -->
+        <div id="events" class="tab-content active">
+            <div class="card">
+                <h2>赛程管理</h2>
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="form-group" style="max-width: 300px;">
+                        <label>当前赛程</label>
+                        <select id="currentEventSelect" onchange="switchEvent()">
+                            <option value="">请选择赛程</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="form-group" style="max-width: 200px;">
+                        <label>新建赛程名称</label>
+                        <input type="text" id="newEventName" placeholder="输入赛程名称">
+                    </div>
+                    <div class="form-group" style="max-width: 150px;">
+                        <label>起始时间</label>
+                        <input type="date" id="newEventStartDate">
+                    </div>
+                    <div class="form-group" style="max-width: 150px;">
+                        <label>结束时间</label>
+                        <input type="date" id="newEventEndDate">
+                    </div>
+                    <div class="form-group" style="max-width: 100px; padding-top: 22px;">
+                        <button id="createEventBtn" class="success">新建赛程</button>
+                    </div>
+                </div>
+                <div id="eventList">
+                    <p style="color: #999; text-align: center; padding: 20px;">暂无赛程</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>数据导入导出</h2>
+                <p style="color: #999; margin-bottom: 15px; font-size: 13px;">导出当前赛程的所有数据（队伍、比赛记录、选手统计），或导入之前导出的数据</p>
+                <div class="row">
+                    <button onclick="exportCurrentEvent()" class="success">导出当前赛程数据</button>
+                    <button onclick="document.getElementById('importFile').click()" class="warning">导入赛程数据</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importEventData(event)">
+                </div>
+            </div>
+        </div>
+
+        <!-- 队伍管理 -->
+        <div id="teamManage" class="tab-content">
+            <div class="card">
+                <h2>队伍管理</h2>
+                <div class="section">
+                    <h3>添加新队伍</h3>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>队伍名称</label>
+                            <input type="text" id="newTeamName" placeholder="输入队伍名称">
+                        </div>
+                    </div>
+                    <button onclick="addTeam()">添加队伍</button>
+                </div>
+                <div class="section">
+                    <h3>现有队伍与选手</h3>
+                    <p class="hint">点击队伍名称可编辑/删除，在输入框中添加选手</p>
+                    <div id="teamsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 创建比赛 -->
+        <div id="matchCreate" class="tab-content">
+            <div class="card">
+                <h2>创建比赛</h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label>比赛编号</label>
+                        <input type="text" id="matchId" placeholder="如：001, 002...">
+                    </div>
+                    <div class="form-group">
+                        <label>赛制</label>
+                        <select id="matchType">
+                            <option value="">请选择</option>
+                            <option value="BO3">BO3</option>
+                            <option value="BO5">BO5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>队伍 A</label>
+                        <select id="teamA"><option value="">请选择队伍</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>队伍 B</label>
+                        <select id="teamB"><option value="">请选择队伍</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>比赛时间</label>
+                        <input type="datetime-local" id="matchTime">
+                    </div>
+                </div>
+                <button onclick="createMatch()">创建比赛</button>
+            </div>
+
+            <div class="card" id="currentMatchCard" style="display: none;">
+                <h2>当前比赛</h2>
+                <div id="currentMatchInfo"></div>
+                <div id="currentMatchTree"></div>
+                <div id="mvpSection" class="mvp-selector" style="display: none;">
+                    <label>最佳演绎选手 (整场比赛)</label>
+                    <select id="matchMVP"><option value="">请选择 MVP</option></select>
+                </div>
+                <div id="matchActions" style="display: none;">
+                    <button onclick="saveMatch()" class="success">保存比赛</button>
+                    <button onclick="cancelMatch()" class="danger">取消比赛</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 选手统计 -->
+        <div id="stats" class="tab-content">
+            <div class="card">
+                <h2>选手数据统计 (平均值)</h2>
+                <p class="hint">以下数据为每位选手在所有半场中的平均值</p>
+                <div class="form-group" style="max-width: 200px;">
+                    <label>筛选队伍</label>
+                    <select id="statsTeamFilter" onchange="updateStatsDisplay()">
+                        <option value="">全部队伍</option>
+                    </select>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>选手</th><th>队伍</th><th>参赛半场</th><th>MVP次数</th>
+                                <th>监管得分</th><th>破坏板子</th><th>恐惧震慑</th><th>击倒次数</th><th>淘汰人数</th>
+                                <th>求生得分</th><th>破译进度</th><th>救人次数</th><th>治疗次数</th><th>牵制时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statsBody">
+                            <tr><td colspan="14" style="color: #999;">暂无数据</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 维度图 -->
+        <div id="radar" class="tab-content">
+            <div class="card" style="padding: 30px;">
+                <h2>选手数据维度图</h2>
+                <div class="row" style="margin-bottom: 20px;">
+                    <div class="form-group" style="max-width: 200px;">
+                        <label>选择选手</label>
+                        <select id="radarPlayerSelect" onchange="updateRadarChart()">
+                            <option value="">请选择选手</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="radarChartsContainer" style="width: 100%; height: 500px; overflow: auto; padding: 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; background: rgba(0,0,0,0.2);">
+                    <p style="color: #999; text-align: center; padding: 40px; width: 100%;">请选择选手查看维度图</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 比赛记录 -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>比赛记录</h2>
+                <div id="matchesList">
+                    <p style="color: #999; text-align: center; padding: 40px;">暂无比赛记录</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框：编辑队伍 -->
+    <div id="teamModal" class="modal-overlay" style="display: none;">
+        <div class="modal" style="width: 400px;">
+            <div class="modal-header">
+                <span class="modal-title">编辑队伍</span>
+                <button class="modal-close" onclick="closeTeamModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>队伍名称</label>
+                    <input type="text" id="editTeamName">
+                </div>
+                <div class="form-group">
+                    <label>当前选手</label>
+                    <div id="editTeamPlayers"></div>
+                </div>
+                <div class="form-group">
+                    <label>添加选手</label>
+                    <div class="add-player-inline">
+                        <input type="text" id="newPlayerName" placeholder="输入选手名称">
+                        <button onclick="addPlayerToEditTeam()" class="success small">添加</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="deleteTeam()" class="danger">删除队伍</button>
+                <button onclick="saveTeamEdit()" class="success">保存修改</button>
+                <button onclick="closeTeamModal()" class="secondary">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框：编辑比赛 -->
+    <div id="matchModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <span class="modal-title">编辑比赛</span>
+                <button class="modal-close" onclick="closeMatchModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="matchModalBody"></div>
+            <div class="modal-footer">
+                <button onclick="saveMatchEdit()" class="success">保存修改</button>
+                <button onclick="closeMatchModal()" class="secondary">取消</button>
+            </div>
+        </div>
+    </div>
+
+    
+<script>
+// 第五人格比赛数据统计系统 V7 - JavaScript
+
+// 数据存储 - V7 新结构：按赛程存储
+// ===== 公开版：从远程 data.json 加载数据（只读） =====
+let events = {};  // 所有赛程
+let currentEventId = '';  // 当前赛程ID
+
+// 当前赛程的数据（从events中读取）
+let teams = {};
+let matches = [];
+let playerStats = {};
+let currentMatch = null;
+let editingTeamName = null;
+let editingMatch = null;
+
+// 角色类型
+const ROLE_NONE = 'none';
+const ROLE_SURVIVOR = 'survivor';
+const ROLE_HUNTER = 'hunter';
+
+// 监管者统计字段
+const HUNTER_FIELDS = [
+    {key: 'hunterScore', name: '监管得分', type: 'number', step: '0.1'},
+    {key: 'breakBoard', name: '破坏板子', type: 'number', step: '1'},
+    {key: 'fearShock', name: '恐惧震慑', type: 'number', step: '1'},
+    {key: 'knockdown', name: '击倒次数', type: 'number', step: '1'},
+    {key: 'eliminate', name: '淘汰人数', type: 'number', step: '1'}
+];
+
+// 求生者统计字段
+const SURVIVOR_FIELDS = [
+    {key: 'survivorScore', name: '求生得分', type: 'number', step: '0.1'},
+    {key: 'decode', name: '破译进度', type: 'number', step: '0.1'},
+    {key: 'rescue', name: '救人次数', type: 'number', step: '1'},
+    {key: 'heal', name: '治疗次数', type: 'number', step: '1'},
+    {key: 'kite', name: '牵制时间', type: 'number', step: '1'}
+];
+
+// 初始化
+// ===== 公开版：从远程加载共享数据 =====
+// ★★★ 请将下面的 URL 替换为你自己的 GitHub 仓库中 data.json 的实际地址 ★★★
+// 格式：https://你的用户名.github.io/仓库名/data.json
+const REMOTE_DATA_URL = './data.json';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // 尝试从远程加载共享数据
+    try {
+        const response = await fetch(REMOTE_DATA_URL + '?t=' + Date.now()); // 加时间戳避免缓存
+        if (response.ok) {
+            const remoteData = await response.json();
+            // data.json 格式：{ version: 'V7', events: { ... } } 或 { version: 'V7', event: { ... } }
+            if (remoteData.events) {
+                events = remoteData.events;
+            } else if (remoteData.event) {
+                // 兼容单赛程导出格式
+                events[remoteData.event.id] = remoteData.event;
+            }
+            // 自动选择第一个赛程
+            const eventIds = Object.keys(events);
+            if (eventIds.length > 0) {
+                currentEventId = eventIds[0];
+            }
+            console.log('远程数据加载成功，共 ' + eventIds.length + ' 个赛程');
+        } else {
+            console.log('远程数据未找到（HTTP ' + response.status + '），显示空白页面');
+        }
+    } catch (err) {
+        console.log('远程数据加载失败：' + err.message);
+    }
+
+    // 隐藏加载遮罩
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.style.display = 'none';
+
+    // 不迁移旧数据（公开版无需迁移）
+    loadCurrentEvent();  // 加载当前赛程
+    initEventBindings();  // 初始化事件绑定
+    updateEventSelect();  // 更新赛程选择器
+    updateEventList();  // 更新赛程列表
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsTeamFilter();
+    updateRadarPlayerSelect();
+    updateStatsDisplay();
+    updateMatchesList();
+    setDefaultMatchTime();
+});
+
+// 迁移旧数据（V6及以下版本）
+function migrateOldData() {
+    const oldTeams = JSON.parse(localStorage.getItem('idv_teams')) || {};
+    const oldMatches = JSON.parse(localStorage.getItem('idv_matches')) || [];
+    const oldPlayerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    
+    // 如果有旧数据且没有新数据结构，则迁移
+    if (Object.keys(oldTeams).length > 0 || oldMatches.length > 0 || Object.keys(oldPlayerStats).length > 0) {
+        if (Object.keys(events).length === 0) {
+            // 创建默认赛程
+            const defaultEventId = 'event_' + Date.now();
+            events[defaultEventId] = {
+                id: defaultEventId,
+                name: '默认赛程',
+                createdAt: new Date().toISOString(),
+                startDate: '',
+                endDate: '',
+                teams: oldTeams,
+                matches: oldMatches,
+                playerStats: oldPlayerStats
+            };
+            currentEventId = defaultEventId;
+            
+            // 保存新结构
+            localStorage.setItem('idv_events', JSON.stringify(events));
+            localStorage.setItem('idv_current_event', currentEventId);
+            
+            console.log('数据迁移完成，已创建默认赛程');
+        }
+    }
+}
+
+// 初始化事件绑定
+function initEventBindings() {
+    document.getElementById('createEventBtn').addEventListener('click', createEvent);
+}
+
+// 加载当前赛程数据
+function loadCurrentEvent() {
+    if (currentEventId && events[currentEventId]) {
+        teams = events[currentEventId].teams || {};
+        matches = events[currentEventId].matches || [];
+        playerStats = events[currentEventId].playerStats || {};
+    } else {
+        teams = {};
+        matches = [];
+        playerStats = {};
+    }
+}
+
+// 保存当前赛程数据
+// ===== 公开版：禁用保存，数据只读 =====
+function saveCurrentEvent() {
+    // 公开版不允许保存修改到远程
+    return;
+}
+
+// ===== 公开版只读保护 =====
+// 拦截所有写入操作，弹出提示
+function showReadonlyWarning() {
+    showNotification('⚠️ 这是公开只读版，无法修改数据');
+}
+
+// 重写创建赛程
+const _origCreateEvent = typeof createEvent !== 'undefined' ? createEvent : null;
+createEvent = function() { showReadonlyWarning(); };
+
+// 重写删除赛程
+const _origDeleteEvent = typeof deleteEvent !== 'undefined' ? deleteEvent : null;
+deleteEvent = function() { showReadonlyWarning(); };
+
+// 重写添加队伍
+const _origAddTeam = typeof addTeam !== 'undefined' ? addTeam : null;
+addTeam = function() { showReadonlyWarning(); };
+
+// 重写创建比赛
+const _origCreateMatch = typeof createMatch !== 'undefined' ? createMatch : null;
+createMatch = function() { showReadonlyWarning(); };
+
+// 重写保存比赛
+const _origSaveMatch = typeof saveMatch !== 'undefined' ? saveMatch : null;
+saveMatch = function() { showReadonlyWarning(); };
+
+// 重写取消比赛
+const _origCancelMatch = typeof cancelMatch !== 'undefined' ? cancelMatch : null;
+cancelMatch = function() { showReadonlyWarning(); };
+
+// 重写导入数据
+const _origImportEventData = typeof importEventData !== 'undefined' ? importEventData : null;
+importEventData = function() { showReadonlyWarning(); };
+
+// 重写导出数据（导出允许，但给个提示）
+const _origExportCurrentEvent = typeof exportCurrentEvent !== 'undefined' ? exportCurrentEvent : null;
+
+// 重写保存队伍编辑
+const _origSaveTeamEdit = typeof saveTeamEdit !== 'undefined' ? saveTeamEdit : null;
+saveTeamEdit = function() { showReadonlyWarning(); };
+
+// 重写删除队伍
+const _origDeleteTeam = typeof deleteTeam !== 'undefined' ? deleteTeam : null;
+deleteTeam = function() { showReadonlyWarning(); };
+
+// 重写添加选手到编辑队伍
+const _origAddPlayerToEditTeam = typeof addPlayerToEditTeam !== 'undefined' ? addPlayerToEditTeam : null;
+addPlayerToEditTeam = function() { showReadonlyWarning(); };
+
+// 重写保存比赛编辑
+const _origSaveMatchEdit = typeof saveMatchEdit !== 'undefined' ? saveMatchEdit : null;
+saveMatchEdit = function() { showReadonlyWarning(); };
+
+// 重写删除比赛记录
+const _origDeleteMatch = typeof deleteMatch !== 'undefined' ? deleteMatch : null;
+deleteMatch = function() { showReadonlyWarning(); };
+
+// 重写打开队伍编辑弹窗 — 公开版仍然允许查看，但禁止保存
+const _origOpenTeamModal = typeof openTeamModal !== 'undefined' ? openTeamModal : null;
+const _origOpenMatchModal = typeof openMatchModal !== 'undefined' ? openMatchModal : null;
+
+// 重写 removePlayerFromEdit — 禁止删除选手
+removePlayerFromEdit = function() { showReadonlyWarning(); };
+
+// 重写赛程排序
+const _origMoveEventUp = typeof moveEventUp !== 'undefined' ? moveEventUp : null;
+moveEventUp = function() { showReadonlyWarning(); };
+const _origMoveEventDown = typeof moveEventDown !== 'undefined' ? moveEventDown : null;
+moveEventDown = function() { showReadonlyWarning(); };
+
+// 重写编辑赛程保存
+const _origSaveEventEdit = typeof saveEventEdit !== 'undefined' ? saveEventEdit : null;
+saveEventEdit = function() { showReadonlyWarning(); };
+
+// 重写删除赛程确认
+const _origConfirmDeleteEvent = typeof confirmDeleteEvent !== 'undefined' ? confirmDeleteEvent : null;
+confirmDeleteEvent = function() { showReadonlyWarning(); };
+
+// 设置默认比赛时间（当前时间）
+function setDefaultMatchTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('matchTime').value = `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+// ==================== 赛程管理 ====================
+
+// 切换赛程
+function switchEvent() {
+    currentEventId = document.getElementById('currentEventSelect').value;
+    // 公开版不写入 localStorage
+    loadCurrentEvent();
+    
+    // 刷新所有显示
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsTeamFilter();
+    updateRadarPlayerSelect();
+    updateStatsDisplay();
+    updateMatchesList();
+    showNotification('已切换到赛程：' + (events[currentEventId]?.name || '未知'));
+}
+
+// 创建新赛程
+function createEvent() {
+    const name = document.getElementById('newEventName').value.trim();
+    const startDate = document.getElementById('newEventStartDate').value;
+    const endDate = document.getElementById('newEventEndDate').value;
+    
+    if (!name) {
+        showNotification('请输入赛程名称');
+        return;
+    }
+    
+    const eventId = 'event_' + Date.now();
+    events[eventId] = {
+        id: eventId,
+        name: name,
+        createdAt: new Date().toISOString(),
+        startDate: startDate,
+        endDate: endDate,
+        teams: {},
+        matches: [],
+        playerStats: {}
+    };
+    
+    localStorage.setItem('idv_events', JSON.stringify(events));
+    document.getElementById('newEventName').value = '';
+    document.getElementById('newEventStartDate').value = '';
+    document.getElementById('newEventEndDate').value = '';
+    
+    updateEventSelect();
+    updateEventList();
+    showNotification('赛程创建成功：' + name);
+}
+
+// 删除赛程
+function deleteEvent(eventId) {
+    if (!confirm('确定要删除赛程"' + events[eventId]?.name + '"吗？此操作不可恢复！')) {
+        return;
+    }
+    
+    delete events[eventId];
+    localStorage.setItem('idv_events', JSON.stringify(events));
+    
+    if (currentEventId === eventId) {
+        const eventIds = Object.keys(events);
+        currentEventId = eventIds.length > 0 ? eventIds[0] : '';
+        localStorage.setItem('idv_current_event', currentEventId);
+        loadCurrentEvent();
+    }
+    
+    updateEventSelect();
+    updateEventList();
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsDisplay();
+    updateMatchesList();
+    showNotification('赛程已删除');
+}
+
+// 更新赛程选择器
+function updateEventSelect() {
+    const select = document.getElementById('currentEventSelect');
+    select.innerHTML = '<option value="">请选择赛程</option>';
+    
+    Object.values(events).forEach(event => {
+        const option = document.createElement('option');
+        option.value = event.id;
+        option.textContent = event.name;
+        if (event.id === currentEventId) {
+            option.selected = true;
+        }
+        select.appendChild(option);
+    });
+}
+
+// 更新赛程列表
+function updateEventList() {
+    const container = document.getElementById('eventList');
+    
+    if (Object.keys(events).length === 0) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">暂无赛程，请新建赛程</p>';
+        return;
+    }
+    
+    // 获取排序后的赛程列表
+    const eventOrder = JSON.parse(localStorage.getItem('idv_event_order') || '[]');
+    const eventIds = Object.keys(events);
+    
+    // 如果有保存的顺序，按顺序排列；否则按创建时间
+    let sortedEvents;
+    if (eventOrder.length > 0) {
+        sortedEvents = eventOrder.filter(id => events[id]).map(id => events[id]);
+        // 添加新增的赛程
+        eventIds.forEach(id => {
+            if (!eventOrder.includes(id)) {
+                sortedEvents.push(events[id]);
+            }
+        });
+    } else {
+        sortedEvents = Object.values(events);
+    }
+    
+    let html = '<table><thead><tr><th>排序</th><th>赛程名称</th><th>起始时间</th><th>结束时间</th><th>队伍数</th><th>比赛数</th><th>操作</th></tr></thead><tbody>';
+    
+    sortedEvents.forEach((event, index) => {
+        const isCurrent = event.id === currentEventId;
+        const startDate = event.startDate || '-';
+        const endDate = event.endDate || '-';
+        html += `<tr style="${isCurrent ? 'background: rgba(233, 69, 96, 0.2);' : ''}" data-event-id="${event.id}">
+            <td>
+                <button onclick="moveEventUp('${event.id}')" class="small secondary" ${index === 0 ? 'disabled' : ''}>↑</button>
+                <button onclick="moveEventDown('${event.id}')" class="small secondary" ${index === sortedEvents.length - 1 ? 'disabled' : ''}>↓</button>
+            </td>
+            <td>${event.name} ${isCurrent ? '<span style="color: #e94560;">[当前]</span>' : ''}</td>
+            <td>${startDate}</td>
+            <td>${endDate}</td>
+            <td>${Object.keys(event.teams || {}).length}</td>
+            <td>${(event.matches || []).length}</td>
+            <td>
+                <button onclick="selectEvent('${event.id}')" class="small ${isCurrent ? '' : 'secondary'}">${isCurrent ? '当前' : '切换'}</button>
+                <button onclick="openEditEventModal('${event.id}')" class="small warning">编辑</button>
+                <button onclick="deleteEvent('${event.id}')" class="small danger">删除</button>
+            </td>
+        </tr>`;
+    });
+    
+    html += '</tbody></table>';
+    container.innerHTML = html;
+}
+
+// 赛程排序上移
+function moveEventUp(eventId) {
+    const eventOrder = JSON.parse(localStorage.getItem('idv_event_order') || '[]');
+    const eventIds = Object.keys(events);
+    
+    // 如果没有保存顺序，初始化为当前顺序
+    if (eventOrder.length === 0) {
+        eventOrder.push(...eventIds);
+    }
+    
+    const index = eventOrder.indexOf(eventId);
+    if (index > 0) {
+        [eventOrder[index - 1], eventOrder[index]] = [eventOrder[index], eventOrder[index - 1]];
+        localStorage.setItem('idv_event_order', JSON.stringify(eventOrder));
+        updateEventList();
+    }
+}
+
+// 赛程排序下移
+function moveEventDown(eventId) {
+    const eventOrder = JSON.parse(localStorage.getItem('idv_event_order') || '[]');
+    const eventIds = Object.keys(events);
+    
+    // 如果没有保存顺序，初始化为当前顺序
+    if (eventOrder.length === 0) {
+        eventOrder.push(...eventIds);
+    }
+    
+    const index = eventOrder.indexOf(eventId);
+    if (index < eventOrder.length - 1) {
+        [eventOrder[index], eventOrder[index + 1]] = [eventOrder[index + 1], eventOrder[index]];
+        localStorage.setItem('idv_event_order', JSON.stringify(eventOrder));
+        updateEventList();
+    }
+}
+
+// 打开编辑赛程弹窗
+function openEditEventModal(eventId) {
+    const event = events[eventId];
+    if (!event) return;
+    
+    // 创建弹窗
+    const modal = document.createElement('div');
+    modal.id = 'editEventModal';
+    modal.className = 'modal show';
+    modal.innerHTML = `
+        <div class="modal-content" style="width: 400px;">
+            <h3>编辑赛程</h3>
+            <div class="form-group">
+                <label>赛程名称</label>
+                <input type="text" id="editEventName" value="${event.name}">
+            </div>
+            <div class="form-group">
+                <label>起始时间</label>
+                <input type="date" id="editEventStartDate" value="${event.startDate || ''}">
+            </div>
+            <div class="form-group">
+                <label>结束时间</label>
+                <input type="date" id="editEventEndDate" value="${event.endDate || ''}">
+            </div>
+            <div style="margin-top: 20px;">
+                <button onclick="saveEventEdit('${eventId}')" class="success">保存</button>
+                <button onclick="closeEditEventModal()" class="secondary">取消</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+// 保存赛程编辑
+function saveEventEdit(eventId) {
+    const name = document.getElementById('editEventName').value.trim();
+    const startDate = document.getElementById('editEventStartDate').value;
+    const endDate = document.getElementById('editEventEndDate').value;
+    
+    if (!name) {
+        showNotification('请输入赛程名称');
+        return;
+    }
+    
+    events[eventId].name = name;
+    events[eventId].startDate = startDate;
+    events[eventId].endDate = endDate;
+    
+    localStorage.setItem('idv_events', JSON.stringify(events));
+    
+    closeEditEventModal();
+    updateEventSelect();
+    updateEventList();
+    showNotification('赛程修改成功');
+}
+
+// 关闭编辑赛程弹窗
+function closeEditEventModal() {
+    const modal = document.getElementById('editEventModal');
+    if (modal) modal.remove();
+}
+
+// 选择赛程
+function selectEvent(eventId) {
+    currentEventId = eventId;
+    localStorage.setItem('idv_current_event', currentEventId);
+    loadCurrentEvent();
+    
+    // 更新下拉框
+    document.getElementById('currentEventSelect').value = eventId;
+    
+    // 刷新所有显示
+    updateEventList();
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsTeamFilter();
+    updateRadarPlayerSelect();
+    updateStatsDisplay();
+    updateMatchesList();
+    showNotification('已切换到赛程：' + events[eventId].name);
+}
+
+// 导出当前赛程数据
+function exportCurrentEvent() {
+    if (!currentEventId || !events[currentEventId]) {
+        alert('请先选择一个赛程');
+        return;
+    }
+    
+    const eventData = {
+        version: 'V7',
+        exportedAt: new Date().toISOString(),
+        event: events[currentEventId]
+    };
+    
+    const dataStr = JSON.stringify(eventData, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `IDV_${events[currentEventId].name}_${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showNotification('数据导出成功');
+}
+
+// 导入赛程数据
+function importEventData(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+        try {
+            const data = JSON.parse(evt.target.result);
+            
+            if (!data.version || !data.event) {
+                alert('无效的数据文件格式');
+                return;
+            }
+            
+            // 创建新赛程（避免ID冲突）
+            const newEventId = 'event_' + Date.now();
+            events[newEventId] = {
+                ...data.event,
+                id: newEventId,
+                name: data.event.name + ' (导入)'
+            };
+            
+            localStorage.setItem('idv_events', JSON.stringify(events));
+            
+            // 切换到新导入的赛程
+            currentEventId = newEventId;
+            localStorage.setItem('idv_current_event', currentEventId);
+            loadCurrentEvent();
+            
+            updateEventSelect();
+            updateEventList();
+            updateTeamSelects();
+            updateTeamsList();
+            updateStatsDisplay();
+            updateMatchesList();
+            
+            showNotification('数据导入成功：' + events[newEventId].name);
+        } catch (err) {
+            alert('导入失败：' + err.message);
+        }
+    };
+    reader.readAsText(file);
+    e.target.value = '';  // 清空文件选择
+}
+
+// 切换标签
+function switchTab(tabId) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
+
+// 显示通知
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3000);
+}
+
+// ==================== 队伍管理 ====================
+
+function addTeam() {
+    const teamName = document.getElementById('newTeamName').value.trim();
+    if (!teamName) { alert('请输入队伍名称！'); return; }
+    if (teams[teamName]) { alert('队伍已存在！'); return; }
+    teams[teamName] = [];
+    saveTeams();
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsTeamFilter();
+    document.getElementById('newTeamName').value = '';
+    showNotification('队伍添加成功！');
+}
+
+function saveTeams() {
+    saveCurrentEvent();
+}
+
+function updateTeamSelects() {
+    const selects = ['teamA', 'teamB'];
+    selects.forEach(id => {
+        const select = document.getElementById(id);
+        const currentValue = select.value;
+        select.innerHTML = '<option value="">请选择队伍</option>';
+        Object.keys(teams).forEach(teamName => {
+            select.innerHTML += `<option value="${teamName}">${teamName}</option>`;
+        });
+        if (teams[currentValue]) select.value = currentValue;
+    });
+}
+
+function updateStatsTeamFilter() {
+    const select = document.getElementById('statsTeamFilter');
+    select.innerHTML = '<option value="">全部队伍</option>';
+    Object.keys(teams).forEach(teamName => {
+        select.innerHTML += `<option value="${teamName}">${teamName}</option>`;
+    });
+}
+
+function updateRadarPlayerSelect() {
+    const select = document.getElementById('radarPlayerSelect');
+    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    
+    const players = Object.keys(playerStats).sort();
+    select.innerHTML = '<option value="">请选择选手</option>';
+    players.forEach(name => {
+        select.innerHTML += `<option value="${name}">${name}</option>`;
+    });
+}
+
+function updateTeamsList() {
+    const container = document.getElementById('teamsList');
+    if (Object.keys(teams).length === 0) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">暂无队伍</p>';
+        return;
+    }
+    container.innerHTML = Object.keys(teams).map(teamName => `
+        <div class="team-card">
+            <div class="team-header">
+                <span class="team-name" onclick="openTeamModal('${teamName}')">${teamName} (${teams[teamName].length}人)</span>
+            </div>
+            <div class="player-list">
+                ${teams[teamName].map(player => `
+                    <span class="player-tag">
+                        ${player}
+                        <button class="danger small" onclick="removePlayer('${teamName}', '${player}')">x</button>
+                    </span>
+                `).join('')}
+            </div>
+            <div class="add-player-inline" style="margin-top: 10px;">
+                <input type="text" id="addPlayer_${teamName.replace(/[^a-zA-Z0-9]/g, '_')}" placeholder="输入选手名称">
+                <button class="success small" onclick="quickAddPlayer('${teamName}')">添加选手</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function quickAddPlayer(teamName) {
+    const inputId = `addPlayer_${teamName.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    const playerName = document.getElementById(inputId).value.trim();
+    if (!playerName) { alert('请输入选手名称！'); return; }
+    if (teams[teamName].includes(playerName)) { alert('该选手已在队伍中！'); return; }
+    teams[teamName].push(playerName);
+    saveTeams();
+    updateTeamsList();
+    showNotification('选手添加成功！');
+}
+
+function removePlayer(team, player) {
+    if (confirm(`确定要删除选手 "${player}" 吗？`)) {
+        teams[team] = teams[team].filter(p => p !== player);
+        saveTeams();
+        updateTeamsList();
+        showNotification('选手已删除');
+    }
+}
+
+function openTeamModal(teamName) {
+    editingTeamName = teamName;
+    document.getElementById('editTeamName').value = teamName;
+    updateEditTeamPlayers();
+    document.getElementById('teamModal').style.display = 'flex';
+}
+
+function updateEditTeamPlayers() {
+    const container = document.getElementById('editTeamPlayers');
+    const players = teams[editingTeamName] || [];
+    container.innerHTML = players.map(player => `
+        <span class="player-tag">
+            ${player}
+            <button class="danger small" onclick="removePlayerFromEdit('${player}')">x</button>
+        </span>
+    `).join('') || '<span style="color: #999;">暂无选手</span>';
+}
+
+function addPlayerToEditTeam() {
+    const playerName = document.getElementById('newPlayerName').value.trim();
+    if (!playerName) { alert('请输入选手名称！'); return; }
+    if (teams[editingTeamName].includes(playerName)) { alert('该选手已在队伍中！'); return; }
+    teams[editingTeamName].push(playerName);
+    saveTeams();
+    updateEditTeamPlayers();
+    document.getElementById('newPlayerName').value = '';
+    showNotification('选手添加成功！');
+}
+
+function removePlayerFromEdit(player) {
+    teams[editingTeamName] = teams[editingTeamName].filter(p => p !== player);
+    saveTeams();
+    updateEditTeamPlayers();
+}
+
+function saveTeamEdit() {
+    const newName = document.getElementById('editTeamName').value.trim();
+    if (!newName) { alert('队伍名称不能为空！'); return; }
+    if (newName !== editingTeamName) {
+        if (teams[newName]) { alert('队伍名称已存在！'); return; }
+        matches.forEach(match => {
+            if (match.teamA === editingTeamName) match.teamA = newName;
+            if (match.teamB === editingTeamName) match.teamB = newName;
+        });
+        Object.keys(playerStats).forEach(player => {
+            if (playerStats[player].team === editingTeamName) {
+                playerStats[player].team = newName;
+            }
+        });
+        teams[newName] = teams[editingTeamName];
+        delete teams[editingTeamName];
+        saveCurrentEvent();
+    }
+    saveTeams();
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsDisplay();
+    updateRadarPlayerSelect();
+    updateMatchesList();
+    closeTeamModal();
+    showNotification('队伍修改成功！');
+}
+
+function deleteTeam() {
+    if (!confirm(`确定要删除队伍 "${editingTeamName}" 吗？`)) return;
+    const usedInMatches = matches.filter(m => m.teamA === editingTeamName || m.teamB === editingTeamName);
+    if (usedInMatches.length > 0) {
+        if (!confirm(`该队伍已参与 ${usedInMatches.length} 场比赛，删除将同时删除这些比赛记录！确定继续？`)) return;
+        usedInMatches.forEach(m => deleteMatchData(m.id));
+    }
+    delete teams[editingTeamName];
+    saveTeams();
+    updateTeamSelects();
+    updateTeamsList();
+    updateStatsDisplay();
+    updateRadarPlayerSelect();
+    closeTeamModal();
+    showNotification('队伍已删除');
+}
+
+function closeTeamModal() {
+    document.getElementById('teamModal').style.display = 'none';
+    editingTeamName = null;
+}
+
+// ==================== 比赛管理 ====================
+
+function createMatch() {
+    const matchId = document.getElementById('matchId').value.trim();
+    const matchType = document.getElementById('matchType').value;
+    const teamA = document.getElementById('teamA').value;
+    const teamB = document.getElementById('teamB').value;
+    const matchTime = document.getElementById('matchTime').value;
+    if (!matchId || !matchType || !teamA || !teamB) { alert('请填写完整的比赛信息！'); return; }
+    if (teamA === teamB) { alert('两队不能相同！'); return; }
+    if (matches.find(m => m.id === matchId)) { alert('比赛编号已存在！'); return; }
+    currentMatch = {
+        id: matchId, type: matchType, teamA: teamA, teamB: teamB,
+        rounds: [], mvpPlayer: null, timestamp: matchTime || new Date().toISOString()
+    };
+    document.getElementById('currentMatchCard').style.display = 'block';
+    renderCurrentMatch();
+    showNotification('比赛创建成功！请添加小场数据');
+}
+
+function renderCurrentMatch() {
+    if (!currentMatch) return;
+    const baseRounds = currentMatch.type === 'BO3' ? 3 : 5;
+    const normalCount = currentMatch.rounds.filter(r => !r.isOvertime).length;
+    const allSubmitted = currentMatch.rounds.length > 0 && currentMatch.rounds.every(r => r.submitted);
+    
+    document.getElementById('currentMatchInfo').innerHTML = `
+        <div class="match-info-bar">
+            <div class="match-info-item"><span class="match-info-label">比赛编号:</span><span class="match-info-value">${currentMatch.id}</span></div>
+            <div class="match-info-item"><span class="match-info-label">赛制:</span><span class="match-info-value">${currentMatch.type}</span></div>
+            <div class="match-info-item"><span class="match-info-label">对阵:</span><span class="match-info-value">${currentMatch.teamA} VS ${currentMatch.teamB}</span></div>
+        </div>
+        <div style="margin: 10px 0;">
+            <button onclick="addRound(false)" ${normalCount >= baseRounds ? 'disabled' : ''}>添加常规小场 (${normalCount}/${baseRounds})</button>
+            <button onclick="addRound(true)" class="secondary">添加加赛</button>
+        </div>
+    `;
+    
+    let roundsHtml = currentMatch.rounds.map((round, index) => renderRoundNode(round, index, false)).join('');
+    document.getElementById('currentMatchTree').innerHTML = roundsHtml || '<p style="color: #999; text-align: center; padding: 20px;">请添加小场</p>';
+    
+    const mvpSection = document.getElementById('mvpSection');
+    const matchActions = document.getElementById('matchActions');
+    if (allSubmitted) {
+        mvpSection.style.display = 'block';
+        matchActions.style.display = 'block';
+        const mvpSelect = document.getElementById('matchMVP');
+        const allPlayers = [...teams[currentMatch.teamA].map(p => ({name: p, team: currentMatch.teamA})), ...teams[currentMatch.teamB].map(p => ({name: p, team: currentMatch.teamB}))];
+        mvpSelect.innerHTML = '<option value="">请选择 MVP</option>' + allPlayers.map(p => `<option value="${p.name}">${p.name} (${p.team})</option>`).join('');
+        if (currentMatch.mvpPlayer) mvpSelect.value = currentMatch.mvpPlayer;
+    } else {
+        mvpSection.style.display = 'none';
+        matchActions.style.display = 'none';
+    }
+}
+
+function renderRoundNode(round, index, isModal = false) {
+    const teamAName = currentMatch ? currentMatch.teamA : editingMatch.teamA;
+    const teamBName = currentMatch ? currentMatch.teamB : editingMatch.teamB;
+    const roundTitle = round.isOvertime ? `加赛 ${getOvertimeNumber(round, index)}` : `第 ${round.roundNumber} 小场`;
+    
+    if (round.submitted) {
+        return `
+            <div class="round-node ${round.isOvertime ? 'overtime' : ''}">
+                <div class="round-title">
+                    <span>${roundTitle}<span class="round-type-badge ${round.isOvertime ? 'round-type-overtime' : 'round-type-normal'}">${round.isOvertime ? '加赛' : '常规'}</span><span style="color: #27ae60; margin-left: 10px;">已提交</span></span>
+                    ${isModal ? `<button class="warning small" onclick="editRound(${index})">编辑</button>` : `<button class="danger small" onclick="removeRound(${index})">删除</button>`}
+                </div>
+                <div>${renderHalfDataTable(round, 'first', teamAName, teamBName)}${renderHalfDataTable(round, 'second', teamAName, teamBName)}</div>
+            </div>`;
+    } else {
+        return `
+            <div class="round-node ${round.isOvertime ? 'overtime' : ''}">
+                <div class="round-title">
+                    <span>${roundTitle}<span class="round-type-badge ${round.isOvertime ? 'round-type-overtime' : 'round-type-normal'}">${round.isOvertime ? '加赛' : '常规'}</span></span>
+                    <button class="danger small" onclick="${isModal ? 'removeEditRound' : 'removeRound'}(${index})">删除</button>
+                </div>
+                ${renderHalfInputForm(round, index, 'first', teamAName, teamBName, isModal)}
+                ${renderHalfInputForm(round, index, 'second', teamAName, teamBName, isModal)}
+                <button onclick="${isModal ? 'submitEditRound' : 'submitRound'}(${index})" class="success" style="margin-top: 15px;">提交小场数据</button>
+            </div>`;
+    }
+}
+
+function getOvertimeNumber(round, index) {
+    const match = currentMatch || editingMatch;
+    return match.rounds.filter((r, i) => r.isOvertime && i <= index).length;
+}
+
+// 渲染半场数据表格（只读）- 已提交后显示
+function renderHalfDataTable(round, half, teamAName, teamBName) {
+    const halfData = round.halves ? round.halves[half] : null;
+    if (!halfData) return '';
+    
+    const halfTitle = half === 'first' ? '上半场' : '下半场';
+    const allPlayers = [...(halfData.teamA || []), ...(halfData.teamB || [])];
+    
+    return `
+        <div class="half-section">
+            <div class="half-title">${halfTitle}</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>选手</th><th>角色</th>
+                        <th colspan="5" style="background: rgba(231, 76, 60, 0.3);">监管者数据</th>
+                        <th colspan="5" style="background: rgba(39, 174, 96, 0.3);">求生者数据</th>
+                    </tr>
+                    <tr>
+                        <th></th><th></th>
+                        <th style="background: rgba(231, 76, 60, 0.2);">得分</th>
+                        <th style="background: rgba(231, 76, 60, 0.2);">板子</th>
+                        <th style="background: rgba(231, 76, 60, 0.2);">震慑</th>
+                        <th style="background: rgba(231, 76, 60, 0.2);">击倒</th>
+                        <th style="background: rgba(231, 76, 60, 0.2);">淘汰</th>
+                        <th style="background: rgba(39, 174, 96, 0.2);">得分</th>
+                        <th style="background: rgba(39, 174, 96, 0.2);">破译</th>
+                        <th style="background: rgba(39, 174, 96, 0.2);">救人</th>
+                        <th style="background: rgba(39, 174, 96, 0.2);">治疗</th>
+                        <th style="background: rgba(39, 174, 96, 0.2);">牵制</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${allPlayers.map(p => renderPlayerDataRow(p)).join('')}
+                </tbody>
+            </table>
+        </div>`;
+}
+
+function renderPlayerDataRow(player) {
+    const roleText = player.role === ROLE_HUNTER ? '监管' : player.role === ROLE_SURVIVOR ? '求生' : '未上场';
+    
+    return `
+        <tr>
+            <td class="player-name-cell">${player.name}</td>
+            <td>${roleText}</td>
+            <td style="background: rgba(231, 76, 60, 0.1);">${player.role === ROLE_HUNTER ? player.stats.hunterScore.toFixed(1) : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.1);">${player.role === ROLE_HUNTER ? player.stats.breakBoard : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.1);">${player.role === ROLE_HUNTER ? player.stats.fearShock : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.1);">${player.role === ROLE_HUNTER ? player.stats.knockdown : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.1);">${player.role === ROLE_HUNTER ? player.stats.eliminate : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.1);">${player.role === ROLE_SURVIVOR ? player.stats.survivorScore.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.1);">${player.role === ROLE_SURVIVOR ? player.stats.decode.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.1);">${player.role === ROLE_SURVIVOR ? player.stats.rescue : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.1);">${player.role === ROLE_SURVIVOR ? player.stats.heal : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.1);">${player.role === ROLE_SURVIVOR ? player.stats.kite : '-'}</td>
+        </tr>`;
+}
+
+// 渲染半场输入表单
+function renderHalfInputForm(round, roundIndex, half, teamAName, teamBName, isModal = false) {
+    const halfTitle = half === 'first' ? '上半场' : '下半场';
+    const prefix = isModal ? 'edit_' : '';
+    const teamAPlayers = teams[teamAName] || [];
+    const teamBPlayers = teams[teamBName] || [];
+    
+    if (!round.halves) round.halves = { first: { teamA: [], teamB: [] }, second: { teamA: [], teamB: [] } };
+    
+    return `
+        <div class="half-section">
+            <div class="half-title">${halfTitle}</div>
+            <h4>${teamAName}</h4>
+            ${renderTeamInputTable(round, roundIndex, half, 'A', teamAName, teamAPlayers, prefix)}
+            <h4>${teamBName}</h4>
+            ${renderTeamInputTable(round, roundIndex, half, 'B', teamBName, teamBPlayers, prefix)}
+        </div>`;
+}
+
+function renderTeamInputTable(round, roundIndex, half, team, teamName, players, prefix) {
+    return `
+        <table style="margin-top: 5px;">
+            <thead>
+                <tr>
+                    <th>选手</th><th>角色</th>
+                    <th colspan="5" style="background: rgba(231, 76, 60, 0.3);">监管者数据</th>
+                    <th colspan="5" style="background: rgba(39, 174, 96, 0.3);">求生者数据</th>
+                </tr>
+                <tr>
+                    <th></th><th></th>
+                    <th style="background: rgba(231, 76, 60, 0.2);">得分</th>
+                    <th style="background: rgba(231, 76, 60, 0.2);">板子</th>
+                    <th style="background: rgba(231, 76, 60, 0.2);">震慑</th>
+                    <th style="background: rgba(231, 76, 60, 0.2);">击倒</th>
+                    <th style="background: rgba(231, 76, 60, 0.2);">淘汰</th>
+                    <th style="background: rgba(39, 174, 96, 0.2);">得分</th>
+                    <th style="background: rgba(39, 174, 96, 0.2);">破译</th>
+                    <th style="background: rgba(39, 174, 96, 0.2);">救人</th>
+                    <th style="background: rgba(39, 174, 96, 0.2);">治疗</th>
+                    <th style="background: rgba(39, 174, 96, 0.2);">牵制</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${players.map((player, pIndex) => renderPlayerInputRow(round, roundIndex, half, team, player, pIndex, prefix)).join('')}
+            </tbody>
+        </table>`;
+}
+
+function renderPlayerInputRow(round, roundIndex, half, team, player, pIndex, prefix) {
+    const id = `${prefix}round_${roundIndex}_${half}_${team}_${pIndex}`;
+    const halfData = round.halves && round.halves[half] ? round.halves[half][`team${team}`] : null;
+    const existingData = halfData ? halfData.find(p => p.name === player) : null;
+    const currentRole = existingData ? existingData.role : ROLE_NONE;
+    
+    const stats = existingData ? existingData.stats : getDefaultStats();
+    
+    return `
+        <tr>
+            <td class="player-name-cell">${player}</td>
+            <td class="stat-cell">
+                <select id="${id}_role" class="role-select ${getRoleSelectClass(currentRole)}" onchange="onRoleChange('${id}', this.value)">
+                    <option value="none" ${currentRole === 'none' ? 'selected' : ''}>未上场</option>
+                    <option value="survivor" ${currentRole === 'survivor' ? 'selected' : ''}>求生者</option>
+                    <option value="hunter" ${currentRole === 'hunter' ? 'selected' : ''}>监管者</option>
+                </select>
+            </td>
+            ${renderStatInputs(id, currentRole, stats, ROLE_HUNTER, HUNTER_FIELDS)}
+            ${renderStatInputs(id, currentRole, stats, ROLE_SURVIVOR, SURVIVOR_FIELDS)}
+        </tr>`;
+}
+
+function renderStatInputs(id, currentRole, stats, targetRole, fields) {
+    const isTargetRole = currentRole === targetRole;
+    const isHunter = targetRole === ROLE_HUNTER;
+    const bgColor = isHunter ? 'rgba(231, 76, 60, 0.1)' : 'rgba(39, 174, 96, 0.1)';
+    
+    return fields.map(f => {
+        const value = isTargetRole ? stats[f.key] : 0;
+        return `<td class="stat-cell" style="background: ${bgColor};">
+            <input type="number" id="${id}_${f.key}" class="stat-input" step="${f.step}" value="${value}" ${isTargetRole ? '' : 'disabled'}>
+        </td>`;
+    }).join('');
+}
+
+function getDefaultStats() {
+    return {
+        hunterScore: 0, breakBoard: 0, fearShock: 0, knockdown: 0, eliminate: 0,
+        survivorScore: 0, decode: 0, rescue: 0, heal: 0, kite: 0
+    };
+}
+
+function getRoleSelectClass(role) {
+    if (role === ROLE_HUNTER) return 'role-hunter';
+    if (role === ROLE_SURVIVOR) return 'role-survivor';
+    return 'role-none';
+}
+
+function onRoleChange(id, role) {
+    const select = document.getElementById(id + '_role');
+    select.className = 'role-select ' + getRoleSelectClass(role);
+    
+    HUNTER_FIELDS.forEach(f => {
+        const input = document.getElementById(`${id}_${f.key}`);
+        if (input) input.disabled = role !== ROLE_HUNTER;
+    });
+    SURVIVOR_FIELDS.forEach(f => {
+        const input = document.getElementById(`${id}_${f.key}`);
+        if (input) input.disabled = role !== ROLE_SURVIVOR;
+    });
+    
+    if (role === ROLE_HUNTER) {
+        SURVIVOR_FIELDS.forEach(f => { const el = document.getElementById(`${id}_${f.key}`); if (el) el.value = 0; });
+    } else if (role === ROLE_SURVIVOR) {
+        HUNTER_FIELDS.forEach(f => { const el = document.getElementById(`${id}_${f.key}`); if (el) el.value = 0; });
+    }
+}
+
+function addRound(isOvertime) {
+    const baseRounds = currentMatch.type === 'BO3' ? 3 : 5;
+    const normalCount = currentMatch.rounds.filter(r => !r.isOvertime).length;
+    if (!isOvertime && normalCount >= baseRounds) { alert(`${currentMatch.type} 的常规小场已满！`); return; }
+    currentMatch.rounds.push({
+        roundNumber: isOvertime ? null : normalCount + 1,
+        isOvertime: isOvertime,
+        submitted: false,
+        halves: { first: { teamA: [], teamB: [] }, second: { teamA: [], teamB: [] } }
+    });
+    renderCurrentMatch();
+    showNotification(isOvertime ? '加赛已添加' : `第 ${normalCount + 1} 小场已添加`);
+}
+
+function removeRound(roundIndex) {
+    if (currentMatch.rounds[roundIndex].submitted && !confirm('该小场已提交，删除将影响数据。确定删除吗？')) return;
+    currentMatch.rounds.splice(roundIndex, 1);
+    renderCurrentMatch();
+    showNotification('小场已删除');
+}
+
+function submitRound(roundIndex) {
+    const round = currentMatch.rounds[roundIndex];
+    collectHalfData(round, roundIndex, 'first');
+    collectHalfData(round, roundIndex, 'second');
+    round.submitted = true;
+    renderCurrentMatch();
+    showNotification('小场数据已提交！');
+}
+
+function collectHalfData(round, roundIndex, half) {
+    const teamAName = currentMatch.teamA;
+    const teamBName = currentMatch.teamB;
+    const teamAPlayers = teams[teamAName] || [];
+    const teamBPlayers = teams[teamBName] || [];
+    
+    round.halves[half].teamA = collectTeamData(roundIndex, half, 'A', teamAPlayers, teamAName);
+    round.halves[half].teamB = collectTeamData(roundIndex, half, 'B', teamBPlayers, teamBName);
+}
+
+function collectTeamData(roundIndex, half, team, players, teamName, prefix = '') {
+    return players.map((player, pIndex) => {
+        const id = `${prefix}round_${roundIndex}_${half}_${team}_${pIndex}`;
+        const roleEl = document.getElementById(`${id}_role`);
+        const role = roleEl ? roleEl.value : ROLE_NONE;
+        
+        const stats = getDefaultStats();
+        if (role === ROLE_HUNTER) {
+            HUNTER_FIELDS.forEach(f => {
+                const el = document.getElementById(`${id}_${f.key}`);
+                const val = parseFloat(el?.value) || 0;
+                stats[f.key] = f.step === '0.1' ? Math.round(val * 10) / 10 : Math.round(val);
+            });
+        } else if (role === ROLE_SURVIVOR) {
+            SURVIVOR_FIELDS.forEach(f => {
+                const el = document.getElementById(`${id}_${f.key}`);
+                const val = parseFloat(el?.value) || 0;
+                stats[f.key] = f.step === '0.1' ? Math.round(val * 10) / 10 : Math.round(val);
+            });
+        }
+        
+        return { name: player, team: teamName, role, stats };
+    });
+}
+
+function saveMatch() {
+    if (!currentMatch || currentMatch.rounds.length === 0) { alert('没有可保存的比赛数据！'); return; }
+    if (!currentMatch.rounds.every(r => r.submitted)) { alert('请先提交所有小场数据！'); return; }
+    
+    const mvpSelect = document.getElementById('matchMVP');
+    currentMatch.mvpPlayer = mvpSelect.value || null;
+    
+    // 更新选手统计（按阵营分开）
+    currentMatch.rounds.forEach(round => {
+        ['first', 'second'].forEach(half => {
+            [...round.halves[half].teamA, ...round.halves[half].teamB].forEach(playerData => {
+                if (playerData.role !== ROLE_NONE) {
+                    updatePlayerStats(playerData, currentMatch.id);
+                }
+            });
+        });
+    });
+    
+    // MVP 统计（按大场）
+    if (currentMatch.mvpPlayer) {
+        if (!playerStats[currentMatch.mvpPlayer]) {
+            playerStats[currentMatch.mvpPlayer] = createEmptyPlayerStats('', '');
+        }
+        playerStats[currentMatch.mvpPlayer].mvpCount++;
+    }
+    
+    matches.push(currentMatch);
+    saveCurrentEvent();
+    
+    updateStatsDisplay();
+    updateRadarPlayerSelect();
+    updateMatchesList();
+    currentMatch = null;
+    document.getElementById('currentMatchCard').style.display = 'none';
+    document.getElementById('matchId').value = '';
+    document.getElementById('matchType').value = '';
+    document.getElementById('teamA').value = '';
+    document.getElementById('teamB').value = '';
+    setDefaultMatchTime();
+    showNotification('比赛保存成功！');
+}
+
+function cancelMatch() {
+    if (confirm('确定要取消当前比赛吗？')) {
+        currentMatch = null;
+        document.getElementById('currentMatchCard').style.display = 'none';
+        document.getElementById('matchId').value = '';
+        document.getElementById('matchType').value = '';
+        document.getElementById('teamA').value = '';
+        document.getElementById('teamB').value = '';
+        showNotification('比赛已取消');
+    }
+}
+
+// ==================== 比赛编辑 ====================
+
+function openMatchModal(matchId) {
+    editingMatch = JSON.parse(JSON.stringify(matches.find(m => m.id === matchId)));
+    renderEditMatch();
+    document.getElementById('matchModal').style.display = 'flex';
+}
+
+function renderEditMatch() {
+    if (!editingMatch) return;
+    const baseRounds = editingMatch.type === 'BO3' ? 3 : 5;
+    const normalCount = editingMatch.rounds.filter(r => !r.isOvertime).length;
+    const allSubmitted = editingMatch.rounds.length > 0 && editingMatch.rounds.every(r => r.submitted);
+    
+    let html = `
+        <div class="match-info-bar">
+            <div class="match-info-item"><span class="match-info-label">比赛编号:</span><span class="match-info-value">${editingMatch.id}</span></div>
+            <div class="match-info-item"><span class="match-info-label">赛制:</span><span class="match-info-value">${editingMatch.type}</span></div>
+            <div class="match-info-item"><span class="match-info-label">对阵:</span><span class="match-info-value">${editingMatch.teamA} VS ${editingMatch.teamB}</span></div>
+        </div>
+        <div style="margin: 10px 0;">
+            <button onclick="addEditRound(false)" ${normalCount >= baseRounds ? 'disabled' : ''}>添加常规小场 (${normalCount}/${baseRounds})</button>
+            <button onclick="addEditRound(true)" class="secondary">添加加赛</button>
+        </div>`;
+    
+    html += editingMatch.rounds.map((round, index) => renderRoundNode(round, index, true)).join('') || '<p style="color: #999; text-align: center; padding: 20px;">请添加小场</p>';
+    
+    if (allSubmitted) {
+        const allPlayers = [...teams[editingMatch.teamA].map(p => ({name: p, team: editingMatch.teamA})), ...teams[editingMatch.teamB].map(p => ({name: p, team: editingMatch.teamB}))];
+        html += `
+            <div class="mvp-selector">
+                <label>最佳演绎选手</label>
+                <select id="editMatchMVP">
+                    <option value="">请选择 MVP</option>
+                    ${allPlayers.map(p => `<option value="${p.name}" ${editingMatch.mvpPlayer === p.name ? 'selected' : ''}>${p.name} (${p.team})</option>`).join('')}
+                </select>
+            </div>`;
+    }
+    
+    document.getElementById('matchModalBody').innerHTML = html;
+}
+
+function addEditRound(isOvertime) {
+    const baseRounds = editingMatch.type === 'BO3' ? 3 : 5;
+    const normalCount = editingMatch.rounds.filter(r => !r.isOvertime).length;
+    if (!isOvertime && normalCount >= baseRounds) { alert(`${editingMatch.type} 的常规小场已满！`); return; }
+    editingMatch.rounds.push({
+        roundNumber: isOvertime ? null : normalCount + 1,
+        isOvertime: isOvertime,
+        submitted: false,
+        halves: { first: { teamA: [], teamB: [] }, second: { teamA: [], teamB: [] } }
+    });
+    renderEditMatch();
+}
+
+function removeEditRound(roundIndex) {
+    if (editingMatch.rounds[roundIndex].submitted && !confirm('该小场已提交，删除将影响数据。确定删除吗？')) return;
+    editingMatch.rounds.splice(roundIndex, 1);
+    renderEditMatch();
+}
+
+function editRound(roundIndex) {
+    const round = editingMatch.rounds[roundIndex];
+    round.submitted = false;
+    renderEditMatch();
+}
+
+function submitEditRound(roundIndex) {
+    const round = editingMatch.rounds[roundIndex];
+    collectEditHalfData(round, roundIndex, 'first');
+    collectEditHalfData(round, roundIndex, 'second');
+    round.submitted = true;
+    renderEditMatch();
+    showNotification('小场数据已更新！');
+}
+
+function collectEditHalfData(round, roundIndex, half) {
+    const teamAName = editingMatch.teamA;
+    const teamBName = editingMatch.teamB;
+    const teamAPlayers = teams[teamAName] || [];
+    const teamBPlayers = teams[teamBName] || [];
+    round.halves[half].teamA = collectTeamData(roundIndex, half, 'A', teamAPlayers, teamAName, 'edit_');
+    round.halves[half].teamB = collectTeamData(roundIndex, half, 'B', teamBPlayers, teamBName, 'edit_');
+}
+
+function saveMatchEdit() {
+    if (!editingMatch || editingMatch.rounds.length === 0) { alert('没有可保存的比赛数据！'); return; }
+    if (!editingMatch.rounds.every(r => r.submitted)) { alert('请先提交所有小场数据！'); return; }
+    
+    const oldMatch = matches.find(m => m.id === editingMatch.id);
+    if (oldMatch) removeMatchStats(oldMatch);
+    
+    const mvpSelect = document.getElementById('editMatchMVP');
+    editingMatch.mvpPlayer = mvpSelect?.value || null;
+    
+    editingMatch.rounds.forEach(round => {
+        ['first', 'second'].forEach(half => {
+            [...round.halves[half].teamA, ...round.halves[half].teamB].forEach(playerData => {
+                if (playerData.role !== ROLE_NONE) {
+                    updatePlayerStats(playerData, editingMatch.id);
+                }
+            });
+        });
+    });
+    
+    if (editingMatch.mvpPlayer) {
+        if (!playerStats[editingMatch.mvpPlayer]) {
+            playerStats[editingMatch.mvpPlayer] = createEmptyPlayerStats('', '');
+        }
+        playerStats[editingMatch.mvpPlayer].mvpCount++;
+    }
+    
+    const index = matches.findIndex(m => m.id === editingMatch.id);
+    matches[index] = editingMatch;
+    saveCurrentEvent();
+    
+    updateStatsDisplay();
+    updateRadarPlayerSelect();
+    updateMatchesList();
+    closeMatchModal();
+    showNotification('比赛修改成功！');
+}
+
+function closeMatchModal() {
+    document.getElementById('matchModal').style.display = 'none';
+    editingMatch = null;
+}
+
+// ==================== 选手统计（按阵营分开）===================
+
+function createEmptyPlayerStats(teamName, matchId) {
+    return {
+        team: teamName,
+        matches: matchId ? [matchId] : [],
+        mvpCount: 0,
+        // 监管者数据
+        hunterHalfs: 0,
+        hunterTotal: { hunterScore: 0, breakBoard: 0, fearShock: 0, knockdown: 0, eliminate: 0 },
+        // 求生者数据
+        survivorHalfs: 0,
+        survivorTotal: { survivorScore: 0, decode: 0, rescue: 0, heal: 0, kite: 0 }
+    };
+}
+
+function updatePlayerStats(playerData, matchId, opponentEliminate = 0) {
+    const playerName = playerData.name;
+    
+    if (!playerStats[playerName]) {
+        playerStats[playerName] = createEmptyPlayerStats(playerData.team, matchId);
+    }
+    
+    if (!playerStats[playerName].matches.includes(matchId)) {
+        playerStats[playerName].matches.push(matchId);
+    }
+    playerStats[playerName].team = playerData.team;
+    
+    // 根据角色分别统计
+    if (playerData.role === ROLE_HUNTER) {
+        playerStats[playerName].hunterHalfs++;
+        HUNTER_FIELDS.forEach(f => {
+            playerStats[playerName].hunterTotal[f.key] += playerData.stats[f.key];
+        });
+    } else if (playerData.role === ROLE_SURVIVOR) {
+        playerStats[playerName].survivorHalfs++;
+        SURVIVOR_FIELDS.forEach(f => {
+            playerStats[playerName].survivorTotal[f.key] += playerData.stats[f.key];
+        });
+    }
+    
+    saveCurrentEvent();
+}
+
+function removeMatchStats(match) {
+    if (match.mvpPlayer && playerStats[match.mvpPlayer]) {
+        playerStats[match.mvpPlayer].mvpCount--;
+    }
+    
+    match.rounds.forEach(round => {
+        ['first', 'second'].forEach(half => {
+            if (round.halves && round.halves[half]) {
+                [...round.halves[half].teamA, ...round.halves[half].teamB].forEach(playerData => {
+                    const playerName = playerData.name;
+                    if (playerStats[playerName]) {
+                        if (playerData.role === ROLE_HUNTER) {
+                            playerStats[playerName].hunterHalfs--;
+                            HUNTER_FIELDS.forEach(f => {
+                                playerStats[playerName].hunterTotal[f.key] -= playerData.stats[f.key];
+                            });
+                        } else if (playerData.role === ROLE_SURVIVOR) {
+                            playerStats[playerName].survivorHalfs--;
+                            SURVIVOR_FIELDS.forEach(f => {
+                                playerStats[playerName].survivorTotal[f.key] -= playerData.stats[f.key];
+                            });
+                        }
+                        playerStats[playerName].matches = playerStats[playerName].matches.filter(m => m !== match.id);
+                        
+                        if (playerStats[playerName].hunterHalfs <= 0 && playerStats[playerName].survivorHalfs <= 0) {
+                            delete playerStats[playerName];
+                        }
+                    }
+                });
+            }
+        });
+    });
+}
+
+function updateStatsDisplay() {
+    const tbody = document.getElementById('statsBody');
+    const filterTeam = document.getElementById('statsTeamFilter').value;
+    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    
+    let sorted = Object.entries(playerStats)
+        .map(([name, data]) => {
+            const hunterHalfs = data.hunterHalfs || 0;
+            const survivorHalfs = data.survivorHalfs || 0;
+            
+            return {
+                name, 
+                team: data.team, 
+                hunterHalfs, 
+                survivorHalfs,
+                totalHalfs: hunterHalfs + survivorHalfs,
+                mvpCount: data.mvpCount || 0,
+                hunterAvg: {
+                    hunterScore: hunterHalfs > 0 ? data.hunterTotal.hunterScore / hunterHalfs : 0,
+                    breakBoard: hunterHalfs > 0 ? data.hunterTotal.breakBoard / hunterHalfs : 0,
+                    fearShock: hunterHalfs > 0 ? data.hunterTotal.fearShock / hunterHalfs : 0,
+                    knockdown: hunterHalfs > 0 ? data.hunterTotal.knockdown / hunterHalfs : 0,
+                    eliminate: hunterHalfs > 0 ? data.hunterTotal.eliminate / hunterHalfs : 0
+                },
+                survivorAvg: {
+                    survivorScore: survivorHalfs > 0 ? data.survivorTotal.survivorScore / survivorHalfs : 0,
+                    decode: survivorHalfs > 0 ? data.survivorTotal.decode / survivorHalfs : 0,
+                    rescue: survivorHalfs > 0 ? data.survivorTotal.rescue / survivorHalfs : 0,
+                    heal: survivorHalfs > 0 ? data.survivorTotal.heal / survivorHalfs : 0,
+                    kite: survivorHalfs > 0 ? data.survivorTotal.kite / survivorHalfs : 0
+                }
+            };
+        })
+        .filter(p => !filterTeam || p.team === filterTeam)
+        .sort((a, b) => (b.hunterAvg.hunterScore + b.survivorAvg.survivorScore) - (a.hunterAvg.hunterScore + a.survivorAvg.survivorScore));
+    
+    if (sorted.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="14" style="color: #999;">暂无数据</td></tr>';
+        return;
+    }
+    
+    tbody.innerHTML = sorted.map(p => `
+        <tr>
+            <td class="player-name-cell">${p.name}</td>
+            <td>${p.team}</td>
+            <td>${p.hunterHalfs}/${p.survivorHalfs}</td>
+            <td>${p.mvpCount}</td>
+            <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.hunterScore.toFixed(1) : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.breakBoard.toFixed(1) : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.fearShock.toFixed(1) : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.knockdown.toFixed(1) : '-'}</td>
+            <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.eliminate.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.survivorScore.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.decode.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.rescue.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.heal.toFixed(1) : '-'}</td>
+            <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.kite.toFixed(1) : '-'}</td>
+        </tr>
+    `).join('');
+}
+
+// ==================== 比赛记录 ====================
+
+function updateMatchesList() {
+    const container = document.getElementById('matchesList');
+    if (matches.length === 0) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 40px;">暂无比赛记录</p>';
+        return;
+    }
+    
+    container.innerHTML = matches.map(match => {
+        return `
+            <div class="match-history-item" id="match-item-${match.id}">
+                <div class="match-info-bar">
+                    <div class="match-info-item"><span class="match-info-label">比赛编号:</span><span class="match-info-value">${match.id}</span></div>
+                    <div class="match-info-item"><span class="match-info-label">赛制:</span><span class="match-info-value">${match.type}</span></div>
+                    <div class="match-info-item"><span class="match-info-label">对阵:</span><span class="match-info-value">${match.teamA} VS ${match.teamB}</span></div>
+                    ${match.mvpPlayer ? `<div class="match-info-item"><span class="mvp-badge">MVP: ${match.mvpPlayer}</span></div>` : ''}
+                </div>
+                <div class="match-info-bar">
+                    <div class="match-info-item"><span class="match-info-label">小场数:</span><span class="match-info-value">${match.rounds.length}</span>(${match.rounds.filter(r => !r.isOvertime).length}常规 + ${match.rounds.filter(r => r.isOvertime).length}加赛)</div>
+                    <div class="match-info-item"><span class="match-info-label">时间:</span><span class="match-info-value">${new Date(match.timestamp).toLocaleString('zh-CN')}</span></div>
+                </div>
+                <div style="margin-top: 10px;">
+                    <button class="secondary small" onclick="toggleMatchStats('${match.id}')">查看选手数据</button>
+                    <button class="warning small" onclick="openMatchModal('${match.id}')">编辑</button>
+                    <button class="danger small" onclick="deleteMatch('${match.id}')">删除</button>
+                </div>
+                <div id="match-stats-${match.id}" class="collapsed" style="margin-top: 15px;"></div>
+            </div>`;
+    }).join('');
+}
+
+function toggleMatchStats(matchId) {
+    const container = document.getElementById(`match-stats-${matchId}`);
+    if (!container.classList.contains('collapsed')) {
+        container.classList.add('collapsed');
+        return;
+    }
+    
+    container.classList.remove('collapsed');
+    const match = matches.find(m => m.id === matchId);
+    if (!match) return;
+    
+    const playerData = calculateMatchPlayerStats(match);
+    container.innerHTML = renderMatchStatsTable(playerData, match);
+}
+
+function calculateMatchPlayerStats(match) {
+    const stats = {};
+    
+    match.rounds.forEach(round => {
+        ['first', 'second'].forEach(half => {
+            if (round.halves && round.halves[half]) {
+                [...round.halves[half].teamA, ...round.halves[half].teamB].forEach(p => {
+                    if (p.role === ROLE_NONE) return;
+                    
+                    if (!stats[p.name]) {
+                        stats[p.name] = {
+                            name: p.name,
+                            team: p.team,
+                            hunterHalfs: 0,
+                            survivorHalfs: 0,
+                            isMVP: match.mvpPlayer === p.name,
+                            hunterTotal: { hunterScore: 0, breakBoard: 0, fearShock: 0, knockdown: 0, eliminate: 0 },
+                            survivorTotal: { survivorScore: 0, decode: 0, rescue: 0, heal: 0, kite: 0 }
+                        };
+                    }
+                    
+                    if (p.role === ROLE_HUNTER) {
+                        stats[p.name].hunterHalfs++;
+                        HUNTER_FIELDS.forEach(f => {
+                            stats[p.name].hunterTotal[f.key] += p.stats[f.key];
+                        });
+                    } else if (p.role === ROLE_SURVIVOR) {
+                        stats[p.name].survivorHalfs++;
+                        SURVIVOR_FIELDS.forEach(f => {
+                            stats[p.name].survivorTotal[f.key] += p.stats[f.key];
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+    return Object.values(stats).map(s => {
+        return {
+            name: s.name,
+            team: s.team,
+            hunterHalfs: s.hunterHalfs,
+            survivorHalfs: s.survivorHalfs,
+            isMVP: s.isMVP,
+            hunterAvg: {
+                hunterScore: s.hunterHalfs > 0 ? s.hunterTotal.hunterScore / s.hunterHalfs : 0,
+                breakBoard: s.hunterHalfs > 0 ? s.hunterTotal.breakBoard / s.hunterHalfs : 0,
+                fearShock: s.hunterHalfs > 0 ? s.hunterTotal.fearShock / s.hunterHalfs : 0,
+                knockdown: s.hunterHalfs > 0 ? s.hunterTotal.knockdown / s.hunterHalfs : 0,
+                eliminate: s.hunterHalfs > 0 ? s.hunterTotal.eliminate / s.hunterHalfs : 0
+            },
+            survivorAvg: {
+                survivorScore: s.survivorHalfs > 0 ? s.survivorTotal.survivorScore / s.survivorHalfs : 0,
+                decode: s.survivorHalfs > 0 ? s.survivorTotal.decode / s.survivorHalfs : 0,
+                rescue: s.survivorHalfs > 0 ? s.survivorTotal.rescue / s.survivorHalfs : 0,
+                heal: s.survivorHalfs > 0 ? s.survivorTotal.heal / s.survivorHalfs : 0,
+                kite: s.survivorHalfs > 0 ? s.survivorTotal.kite / s.survivorHalfs : 0
+            }
+        };
+    }).sort((a, b) => (b.hunterAvg.hunterScore + b.survivorAvg.survivorScore) - (a.hunterAvg.hunterScore + a.survivorAvg.survivorScore));
+}
+
+function renderMatchStatsTable(playerData, match) {
+    if (playerData.length === 0) {
+        return '<p style="color: #999; text-align: center; padding: 20px;">暂无选手数据</p>';
+    }
+    
+    const teamA = match.teamA;
+    const teamB = match.teamB;
+    const teamAPlayers = playerData.filter(p => p.team === teamA);
+    const teamBPlayers = playerData.filter(p => p.team === teamB);
+    
+    const renderPlayerRows = (players) => {
+        return players.map(p => `
+            <tr style="${p.isMVP ? 'background: rgba(243, 156, 18, 0.3);' : ''}">
+                <td class="player-name-cell">${p.isMVP ? '★ ' : ''}${p.name}</td>
+                <td>${p.hunterHalfs}/${p.survivorHalfs}</td>
+                <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.hunterScore.toFixed(1) : '-'}</td>
+                <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.breakBoard.toFixed(1) : '-'}</td>
+                <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.fearShock.toFixed(1) : '-'}</td>
+                <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.knockdown.toFixed(1) : '-'}</td>
+                <td style="background: rgba(231, 76, 60, 0.15);">${p.hunterHalfs > 0 ? p.hunterAvg.eliminate.toFixed(1) : '-'}</td>
+                <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.survivorScore.toFixed(1) : '-'}</td>
+                <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.decode.toFixed(1) : '-'}</td>
+                <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.rescue.toFixed(1) : '-'}</td>
+                <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.heal.toFixed(1) : '-'}</td>
+                <td style="background: rgba(39, 174, 96, 0.15);">${p.survivorHalfs > 0 ? p.survivorAvg.kite.toFixed(1) : '-'}</td>
+            </tr>
+        `).join('');
+    };
+    
+    const tableHeader = `
+        <thead>
+            <tr>
+                <th colspan="2">${teamA}</th>
+                <th style="background: rgba(231, 76, 60, 0.3);">监管得分</th>
+                <th style="background: rgba(231, 76, 60, 0.3);">板子</th>
+                <th style="background: rgba(231, 76, 60, 0.3);">震慑</th>
+                <th style="background: rgba(231, 76, 60, 0.3);">击倒</th>
+                <th style="background: rgba(231, 76, 60, 0.3);">淘汰</th>
+                <th style="background: rgba(39, 174, 96, 0.3);">求生得分</th>
+                <th style="background: rgba(39, 174, 96, 0.3);">破译</th>
+                <th style="background: rgba(39, 174, 96, 0.3);">救人</th>
+                <th style="background: rgba(39, 174, 96, 0.3);">治疗</th>
+                <th style="background: rgba(39, 174, 96, 0.3);">牵制</th>
+            </tr>
+        </thead>`;
+    
+    return `
+        <div style="overflow-x: auto;">
+            <table style="font-size: 11px;">
+                ${tableHeader}
+                <tbody>${renderPlayerRows(teamAPlayers)}</tbody>
+            </table>
+            <table style="font-size: 11px; margin-top: 10px;">
+                <thead>
+                    <tr>
+                        <th colspan="2">${teamB}</th>
+                        <th style="background: rgba(231, 76, 60, 0.3);">监管得分</th>
+                        <th style="background: rgba(231, 76, 60, 0.3);">板子</th>
+                        <th style="background: rgba(231, 76, 60, 0.3);">震慑</th>
+                        <th style="background: rgba(231, 76, 60, 0.3);">击倒</th>
+                        <th style="background: rgba(231, 76, 60, 0.3);">淘汰</th>
+                        <th style="background: rgba(39, 174, 96, 0.3);">求生得分</th>
+                        <th style="background: rgba(39, 174, 96, 0.3);">破译</th>
+                        <th style="background: rgba(39, 174, 96, 0.3);">救人</th>
+                        <th style="background: rgba(39, 174, 96, 0.3);">治疗</th>
+                        <th style="background: rgba(39, 174, 96, 0.3);">牵制</th>
+                    </tr>
+                </thead>
+                <tbody>${renderPlayerRows(teamBPlayers)}</tbody>
+            </table>
+        </div>
+    `;
+}
+
+function deleteMatchData(matchId) {
+    const match = matches.find(m => m.id === matchId);
+    if (match) {
+        removeMatchStats(match);
+        matches = matches.filter(m => m.id !== matchId);
+        saveCurrentEvent();
+    }
+}
+
+function deleteMatch(matchId) {
+    if (!confirm(`确定要删除比赛 ${matchId} 吗？`)) return;
+    deleteMatchData(matchId);
+    updateStatsDisplay();
+    updateRadarPlayerSelect();
+    updateMatchesList();
+    showNotification('比赛已删除');
+}
+
+// ==================== 维度图 ====================
+
+// 计算所有选手的平均值，用于动态设置刻度
+function calculateAverageMax() {
+    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    
+    const hunterTotals = { hunterScore: 0, breakBoard: 0, fearShock: 0, knockdown: 0, eliminate: 0 };
+    const survivorTotals = { survivorScore: 0, decode: 0, rescue: 0, heal: 0, kite: 0 };
+    let hunterHalfsTotal = 0;
+    let survivorHalfsTotal = 0;
+    
+    Object.values(playerStats).forEach(data => {
+        hunterHalfsTotal += data.hunterHalfs || 0;
+        survivorHalfsTotal += data.survivorHalfs || 0;
+        Object.keys(hunterTotals).forEach(key => {
+            hunterTotals[key] += data.hunterTotal?.[key] || 0;
+        });
+        Object.keys(survivorTotals).forEach(key => {
+            survivorTotals[key] += data.survivorTotal?.[key] || 0;
+        });
+    });
+    
+    // 计算平均值，再乘以1.8
+    const hunterMax = {};
+    Object.keys(hunterTotals).forEach(key => {
+        // 得分和淘汰用固定刻度
+        if (key === 'hunterScore') {
+            hunterMax[key] = 10000;
+        } else if (key === 'eliminate') {
+            hunterMax[key] = 3;
+        } else {
+            const avg = hunterHalfsTotal > 0 ? hunterTotals[key] / hunterHalfsTotal : 1;
+            hunterMax[key] = Math.max(avg * 1.8, 1);
+        }
+    });
+    
+    const survivorMax = {};
+    Object.keys(survivorTotals).forEach(key => {
+        // 得分用固定刻度
+        if (key === 'survivorScore') {
+            survivorMax[key] = 10000;
+        } else {
+            const avg = survivorHalfsTotal > 0 ? survivorTotals[key] / survivorHalfsTotal : 1;
+            survivorMax[key] = Math.max(avg * 1.8, 1);
+        }
+    });
+    
+    return { hunterMax, survivorMax };
+}
+
+function updateRadarChart() {
+    const playerName = document.getElementById('radarPlayerSelect').value;
+    const container = document.getElementById('radarChartsContainer');
+    
+    if (!playerName) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 40px; width: 100%;">请选择选手查看维度图</p>';
+        return;
+    }
+    
+    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    matches = JSON.parse(localStorage.getItem('idv_matches')) || [];
+    const data = playerStats[playerName];
+    
+    if (!data) {
+        container.innerHTML = '<p style="color: #999; text-align: center; padding: 40px; width: 100%;">暂无该选手数据</p>';
+        return;
+    }
+    
+    const hunterHalfs = data.hunterHalfs || 0;
+    const survivorHalfs = data.survivorHalfs || 0;
+    const mvpCount = data.mvpCount || 0;
+    
+    // 计算平均值
+    const hunterAvg = {
+        hunterScore: hunterHalfs > 0 ? data.hunterTotal.hunterScore / hunterHalfs : 0,
+        breakBoard: hunterHalfs > 0 ? data.hunterTotal.breakBoard / hunterHalfs : 0,
+        fearShock: hunterHalfs > 0 ? data.hunterTotal.fearShock / hunterHalfs : 0,
+        knockdown: hunterHalfs > 0 ? data.hunterTotal.knockdown / hunterHalfs : 0,
+        eliminate: hunterHalfs > 0 ? data.hunterTotal.eliminate / hunterHalfs : 0
+    };
+    
+    const survivorAvg = {
+        survivorScore: survivorHalfs > 0 ? data.survivorTotal.survivorScore / survivorHalfs : 0,
+        decode: survivorHalfs > 0 ? data.survivorTotal.decode / survivorHalfs : 0,
+        rescue: survivorHalfs > 0 ? data.survivorTotal.rescue / survivorHalfs : 0,
+        heal: survivorHalfs > 0 ? data.survivorTotal.heal / survivorHalfs : 0,
+        kite: survivorHalfs > 0 ? data.survivorTotal.kite / survivorHalfs : 0
+    };
+    
+    // 从比赛记录中实时计算四抓率和逃脱数
+    let fourKills = 0;
+    let totalEscapes = 0;
+    
+    matches.forEach(match => {
+        match.rounds.forEach(round => {
+            ['first', 'second'].forEach(half => {
+                if (round.halves && round.halves[half]) {
+                    const teamAData = round.halves[half].teamA || [];
+                    const teamBData = round.halves[half].teamB || [];
+                    
+                    // 先获取双方监管者的淘汰数
+                    let teamAHunterEliminate = 0;
+                    let teamBHunterEliminate = 0;
+                    teamAData.forEach(p => {
+                        if (p.role === ROLE_HUNTER) {
+                            teamAHunterEliminate = p.stats.eliminate || 0;
+                            // 计算四抓率：如果选手是该监管者且淘汰4个
+                            if (p.name === playerName && p.stats.eliminate === 4) {
+                                fourKills++;
+                            }
+                        }
+                    });
+                    teamBData.forEach(p => {
+                        if (p.role === ROLE_HUNTER) {
+                            teamBHunterEliminate = p.stats.eliminate || 0;
+                            // 计算四抓率：如果选手是该监管者且淘汰4个
+                            if (p.name === playerName && p.stats.eliminate === 4) {
+                                fourKills++;
+                            }
+                        }
+                    });
+                    
+                    // 计算逃脱数：A队求生者面对B队监管者，逃脱 = 4 - B队监管者淘汰数
+                    teamAData.forEach(p => {
+                        if (p.role === ROLE_SURVIVOR && p.name === playerName) {
+                            totalEscapes += (4 - teamBHunterEliminate);
+                        }
+                    });
+                    // B队求生者面对A队监管者，逃脱 = 4 - A队监管者淘汰数
+                    teamBData.forEach(p => {
+                        if (p.role === ROLE_SURVIVOR && p.name === playerName) {
+                            totalEscapes += (4 - teamAHunterEliminate);
+                        }
+                    });
+                }
+            });
+        });
+    });
+    
+    const fourKillRate = hunterHalfs > 0 ? fourKills / hunterHalfs : 0;
+    const escapesAvg = survivorHalfs > 0 ? totalEscapes / survivorHalfs : 0;
+    
+    // MVP显示
+    const mvpDisplay = mvpCount > 0 ? `<div style="position: absolute; top: 10px; right: 10px; color: #ffd700; font-weight: bold; font-size: 16px;">MVP: ${mvpCount}</div>` : '';
+    
+    // 生成容器 - 横向排列，可横向滚动
+    container.innerHTML = `
+        <div style="position: relative; padding: 10px;">
+            ${mvpDisplay}
+            <div style="display: flex; flex-wrap: nowrap; gap: 20px; justify-content: center; width: max-content; margin: 0 auto;">
+                <div id="hunterRadar" style="width: 550px;"></div>
+                <div id="survivorRadar" style="width: 550px;"></div>
+            </div>
+        </div>
+    `;
+    
+    // 固定刻度
+    const hunterMax = { hunterScore: 10000, breakBoard: 5, fearShock: 1.5, knockdown: 7, eliminate: 2.8 };
+    const survivorMax = { survivorScore: 10000, decode: 180, rescue: 1.2, heal: 1.2, kite: 75 };
+    const escapesMax = 1.8;
+    const fourKillRateMax = 0.45; // 45%
+    
+    // 绘制监管者雷达图（六维）
+    if (hunterHalfs > 0) {
+        renderRadar('hunterRadar', '监管者数据', [
+            { name: '得分', max: hunterMax.hunterScore, value: hunterAvg.hunterScore },
+            { name: '击倒', max: hunterMax.knockdown, value: hunterAvg.knockdown },
+            { name: '淘汰', max: hunterMax.eliminate, value: hunterAvg.eliminate },
+            { name: '四抓率', max: fourKillRateMax, value: fourKillRate },
+            { name: '板子', max: hunterMax.breakBoard, value: hunterAvg.breakBoard },
+            { name: '震慑', max: hunterMax.fearShock, value: hunterAvg.fearShock }
+        ], 'rgba(231, 76, 60, 0.6)', 'rgba(231, 76, 60, 1)');
+    } else {
+        document.getElementById('hunterRadar').innerHTML = '<p style="color: #999; text-align: center; padding: 200px 40px;">暂无监管者数据</p>';
+    }
+    
+    // 绘制求生者雷达图（六维）
+    if (survivorHalfs > 0) {
+        renderRadar('survivorRadar', '求生者数据', [
+            { name: '得分', max: survivorMax.survivorScore, value: survivorAvg.survivorScore },
+            { name: '破译', max: survivorMax.decode, value: survivorAvg.decode },
+            { name: '救人', max: survivorMax.rescue, value: survivorAvg.rescue },
+            { name: '治疗', max: survivorMax.heal, value: survivorAvg.heal },
+            { name: '牵制', max: survivorMax.kite, value: survivorAvg.kite },
+            { name: '逃脱', max: escapesMax, value: escapesAvg }
+        ], 'rgba(39, 174, 96, 0.6)', 'rgba(39, 174, 96, 1)');
+    } else {
+        document.getElementById('survivorRadar').innerHTML = '<p style="color: #999; text-align: center; padding: 200px 40px;">暂无求生者数据</p>';
+    }
+}
+
+function renderRadar(containerId, title, indicators, fillColor, borderColor) {
+    const container = document.getElementById(containerId);
+    
+    // 创建图表容器 - 足大尺寸以容纳超出边界的线条
+    const chartDiv = document.createElement('div');
+    chartDiv.style.cssText = 'width: 550px; height: 550px;';
+    container.appendChild(chartDiv);
+    
+    const chart = echarts.init(chartDiv);
+    
+    // 格式化数值显示
+    const formatValue = (name, value) => {
+        if (name === '四抓率') {
+            return (value * 100).toFixed(0) + '%';
+        } else if (name === '得分') {
+            return Math.round(value).toString();
+        } else {
+            return value.toFixed(1);
+        }
+    };
+    
+    const option = {
+        title: {
+            text: title,
+            left: 'center',
+            top: 20,
+            textStyle: { color: '#fff', fontSize: 18 }
+        },
+        radar: {
+            indicator: indicators.map(d => ({ name: d.name, max: d.max })),
+            shape: 'polygon',
+            splitNumber: 5,
+            center: ['50%', '52%'],
+            radius: '40%',
+            axisName: { 
+                color: '#fff', 
+                fontSize: 13,
+                formatter: (name) => {
+                    const ind = indicators.find(i => i.name === name);
+                    const value = ind ? formatValue(name, ind.value) : '';
+                    return `${name}: ${value}`;
+                }
+            },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.2)' } },
+            splitArea: { areaStyle: { color: ['rgba(255,255,255,0.05)', 'rgba(255,255,255,0.1)'] } },
+            axisLine: { lineStyle: { color: 'rgba(255,255,255,0.2)' } }
+        },
+        series: [{
+            type: 'radar',
+            data: [{
+                value: indicators.map(d => d.value),
+                name: title,
+                areaStyle: { color: fillColor },
+                lineStyle: { color: borderColor, width: 2 },
+                itemStyle: { color: borderColor }
+            }]
+        }]
+    };
+    
+    chart.setOption(option);
+}
+
+</script>
+</body>
+</html>
