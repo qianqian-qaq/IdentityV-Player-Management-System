@@ -966,7 +966,7 @@ function updateStatsTeamFilter() {
 
 function updateRadarPlayerSelect() {
     const select = document.getElementById('radarPlayerSelect');
-    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    // 公开版：使用全局变量（来自 data.json），不从 localStorage 读取
     
     const players = Object.keys(playerStats).sort();
     select.innerHTML = '<option value="">请选择选手</option>';
@@ -1700,7 +1700,7 @@ function removeMatchStats(match) {
 function updateStatsDisplay() {
     const tbody = document.getElementById('statsBody');
     const filterTeam = document.getElementById('statsTeamFilter').value;
-    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    // 公开版：使用全局变量（来自 data.json），不从 localStorage 读取
     
     let sorted = Object.entries(playerStats)
         .map(([name, data]) => {
@@ -1963,7 +1963,7 @@ function deleteMatch(matchId) {
 
 // 计算所有选手的平均值，用于动态设置刻度
 function calculateAverageMax() {
-    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
+    // 公开版：使用全局变量（来自 data.json），不从 localStorage 读取
     
     const hunterTotals = { hunterScore: 0, breakBoard: 0, fearShock: 0, knockdown: 0, eliminate: 0 };
     const survivorTotals = { survivorScore: 0, decode: 0, rescue: 0, heal: 0, kite: 0 };
@@ -2018,8 +2018,7 @@ function updateRadarChart() {
         return;
     }
     
-    playerStats = JSON.parse(localStorage.getItem('idv_player_stats')) || {};
-    matches = JSON.parse(localStorage.getItem('idv_matches')) || [];
+    // 公开版：使用全局变量（来自 data.json），不从 localStorage 读取
     const data = playerStats[playerName];
     
     if (!data) {
@@ -2214,4 +2213,3 @@ function renderRadar(containerId, title, indicators, fillColor, borderColor) {
 
 </script>
 </body>
-</html>
