@@ -484,82 +484,16 @@ function saveCurrentEvent() {
 }
 
 // ===== 公开版只读保护 =====
+// 全局只读标志，函数内部检查此标志
+const IS_PUBLIC_READONLY = true;
+
 // 拦截所有写入操作，弹出提示
 function showReadonlyWarning() {
     showNotification('⚠️ 这是公开只读版，无法修改数据');
 }
 
-// 重写创建赛程
-const _origCreateEvent = typeof createEvent !== 'undefined' ? createEvent : null;
-createEvent = function() { showReadonlyWarning(); };
-
-// 重写删除赛程
-const _origDeleteEvent = typeof deleteEvent !== 'undefined' ? deleteEvent : null;
-deleteEvent = function() { showReadonlyWarning(); };
-
-// 重写添加队伍
-const _origAddTeam = typeof addTeam !== 'undefined' ? addTeam : null;
-addTeam = function() { showReadonlyWarning(); };
-
-// 重写创建比赛
-const _origCreateMatch = typeof createMatch !== 'undefined' ? createMatch : null;
-createMatch = function() { showReadonlyWarning(); };
-
-// 重写保存比赛
-const _origSaveMatch = typeof saveMatch !== 'undefined' ? saveMatch : null;
-saveMatch = function() { showReadonlyWarning(); };
-
-// 重写取消比赛
-const _origCancelMatch = typeof cancelMatch !== 'undefined' ? cancelMatch : null;
-cancelMatch = function() { showReadonlyWarning(); };
-
-// 重写导入数据
-const _origImportEventData = typeof importEventData !== 'undefined' ? importEventData : null;
-importEventData = function() { showReadonlyWarning(); };
-
-// 重写导出数据（导出允许，但给个提示）
-const _origExportCurrentEvent = typeof exportCurrentEvent !== 'undefined' ? exportCurrentEvent : null;
-
-// 重写保存队伍编辑
-const _origSaveTeamEdit = typeof saveTeamEdit !== 'undefined' ? saveTeamEdit : null;
-saveTeamEdit = function() { showReadonlyWarning(); };
-
-// 重写删除队伍
-const _origDeleteTeam = typeof deleteTeam !== 'undefined' ? deleteTeam : null;
-deleteTeam = function() { showReadonlyWarning(); };
-
-// 重写添加选手到编辑队伍
-const _origAddPlayerToEditTeam = typeof addPlayerToEditTeam !== 'undefined' ? addPlayerToEditTeam : null;
-addPlayerToEditTeam = function() { showReadonlyWarning(); };
-
-// 重写保存比赛编辑
-const _origSaveMatchEdit = typeof saveMatchEdit !== 'undefined' ? saveMatchEdit : null;
-saveMatchEdit = function() { showReadonlyWarning(); };
-
-// 重写删除比赛记录
-const _origDeleteMatch = typeof deleteMatch !== 'undefined' ? deleteMatch : null;
-deleteMatch = function() { showReadonlyWarning(); };
-
-// 重写打开队伍编辑弹窗 — 公开版仍然允许查看，但禁止保存
-const _origOpenTeamModal = typeof openTeamModal !== 'undefined' ? openTeamModal : null;
-const _origOpenMatchModal = typeof openMatchModal !== 'undefined' ? openMatchModal : null;
-
-// 重写 removePlayerFromEdit — 禁止删除选手
-removePlayerFromEdit = function() { showReadonlyWarning(); };
-
-// 重写赛程排序
-const _origMoveEventUp = typeof moveEventUp !== 'undefined' ? moveEventUp : null;
-moveEventUp = function() { showReadonlyWarning(); };
-const _origMoveEventDown = typeof moveEventDown !== 'undefined' ? moveEventDown : null;
-moveEventDown = function() { showReadonlyWarning(); };
-
-// 重写编辑赛程保存
-const _origSaveEventEdit = typeof saveEventEdit !== 'undefined' ? saveEventEdit : null;
-saveEventEdit = function() { showReadonlyWarning(); };
-
-// 重写删除赛程确认
-const _origConfirmDeleteEvent = typeof confirmDeleteEvent !== 'undefined' ? confirmDeleteEvent : null;
-confirmDeleteEvent = function() { showReadonlyWarning(); };
+// 注意：只读保护通过 IS_PUBLIC_READONLY 标志在各函数内部实现，
+// 不使用外部赋值覆盖（因为 JS 函数提升会使其无效）。
 
 // 设置默认比赛时间（当前时间）
 function setDefaultMatchTime() {
@@ -592,6 +526,7 @@ function switchEvent() {
 
 // 创建新赛程
 function createEvent() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const name = document.getElementById('newEventName').value.trim();
     const startDate = document.getElementById('newEventStartDate').value;
     const endDate = document.getElementById('newEventEndDate').value;
@@ -625,6 +560,7 @@ function createEvent() {
 
 // 删除赛程
 function deleteEvent(eventId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (!confirm('确定要删除赛程"' + events[eventId]?.name + '"吗？此操作不可恢复！')) {
         return;
     }
@@ -721,6 +657,7 @@ function updateEventList() {
 
 // 赛程排序上移
 function moveEventUp(eventId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const eventOrder = JSON.parse(localStorage.getItem('idv_event_order') || '[]');
     const eventIds = Object.keys(events);
     
@@ -739,6 +676,7 @@ function moveEventUp(eventId) {
 
 // 赛程排序下移
 function moveEventDown(eventId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const eventOrder = JSON.parse(localStorage.getItem('idv_event_order') || '[]');
     const eventIds = Object.keys(events);
     
@@ -790,6 +728,7 @@ function openEditEventModal(eventId) {
 
 // 保存赛程编辑
 function saveEventEdit(eventId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const name = document.getElementById('editEventName').value.trim();
     const startDate = document.getElementById('editEventStartDate').value;
     const endDate = document.getElementById('editEventEndDate').value;
@@ -863,6 +802,7 @@ function exportCurrentEvent() {
 
 // 导入赛程数据
 function importEventData(e) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const file = e.target.files[0];
     if (!file) return;
     
@@ -927,6 +867,7 @@ function showNotification(message) {
 // ==================== 队伍管理 ====================
 
 function addTeam() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const teamName = document.getElementById('newTeamName').value.trim();
     if (!teamName) { alert('请输入队伍名称！'); return; }
     if (teams[teamName]) { alert('队伍已存在！'); return; }
@@ -1003,6 +944,7 @@ function updateTeamsList() {
 }
 
 function quickAddPlayer(teamName) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const inputId = `addPlayer_${teamName.replace(/[^a-zA-Z0-9]/g, '_')}`;
     const playerName = document.getElementById(inputId).value.trim();
     if (!playerName) { alert('请输入选手名称！'); return; }
@@ -1014,6 +956,7 @@ function quickAddPlayer(teamName) {
 }
 
 function removePlayer(team, player) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (confirm(`确定要删除选手 "${player}" 吗？`)) {
         teams[team] = teams[team].filter(p => p !== player);
         saveTeams();
@@ -1041,6 +984,7 @@ function updateEditTeamPlayers() {
 }
 
 function addPlayerToEditTeam() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const playerName = document.getElementById('newPlayerName').value.trim();
     if (!playerName) { alert('请输入选手名称！'); return; }
     if (teams[editingTeamName].includes(playerName)) { alert('该选手已在队伍中！'); return; }
@@ -1052,12 +996,14 @@ function addPlayerToEditTeam() {
 }
 
 function removePlayerFromEdit(player) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     teams[editingTeamName] = teams[editingTeamName].filter(p => p !== player);
     saveTeams();
     updateEditTeamPlayers();
 }
 
 function saveTeamEdit() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const newName = document.getElementById('editTeamName').value.trim();
     if (!newName) { alert('队伍名称不能为空！'); return; }
     if (newName !== editingTeamName) {
@@ -1086,6 +1032,7 @@ function saveTeamEdit() {
 }
 
 function deleteTeam() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (!confirm(`确定要删除队伍 "${editingTeamName}" 吗？`)) return;
     const usedInMatches = matches.filter(m => m.teamA === editingTeamName || m.teamB === editingTeamName);
     if (usedInMatches.length > 0) {
@@ -1110,6 +1057,7 @@ function closeTeamModal() {
 // ==================== 比赛管理 ====================
 
 function createMatch() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const matchId = document.getElementById('matchId').value.trim();
     const matchType = document.getElementById('matchType').value;
     const teamA = document.getElementById('teamA').value;
@@ -1373,6 +1321,7 @@ function onRoleChange(id, role) {
 }
 
 function addRound(isOvertime) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const baseRounds = currentMatch.type === 'BO3' ? 3 : 5;
     const normalCount = currentMatch.rounds.filter(r => !r.isOvertime).length;
     if (!isOvertime && normalCount >= baseRounds) { alert(`${currentMatch.type} 的常规小场已满！`); return; }
@@ -1387,6 +1336,7 @@ function addRound(isOvertime) {
 }
 
 function removeRound(roundIndex) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (currentMatch.rounds[roundIndex].submitted && !confirm('该小场已提交，删除将影响数据。确定删除吗？')) return;
     currentMatch.rounds.splice(roundIndex, 1);
     renderCurrentMatch();
@@ -1394,6 +1344,7 @@ function removeRound(roundIndex) {
 }
 
 function submitRound(roundIndex) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const round = currentMatch.rounds[roundIndex];
     collectHalfData(round, roundIndex, 'first');
     collectHalfData(round, roundIndex, 'second');
@@ -1438,6 +1389,7 @@ function collectTeamData(roundIndex, half, team, players, teamName, prefix = '')
 }
 
 function saveMatch() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (!currentMatch || currentMatch.rounds.length === 0) { alert('没有可保存的比赛数据！'); return; }
     if (!currentMatch.rounds.every(r => r.submitted)) { alert('请先提交所有小场数据！'); return; }
     
@@ -1480,6 +1432,7 @@ function saveMatch() {
 }
 
 function cancelMatch() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (confirm('确定要取消当前比赛吗？')) {
         currentMatch = null;
         document.getElementById('currentMatchCard').style.display = 'none';
@@ -1577,6 +1530,7 @@ function collectEditHalfData(round, roundIndex, half) {
 }
 
 function saveMatchEdit() {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (!editingMatch || editingMatch.rounds.length === 0) { alert('没有可保存的比赛数据！'); return; }
     if (!editingMatch.rounds.every(r => r.submitted)) { alert('请先提交所有小场数据！'); return; }
     
@@ -1942,6 +1896,7 @@ function renderMatchStatsTable(playerData, match) {
 }
 
 function deleteMatchData(matchId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     const match = matches.find(m => m.id === matchId);
     if (match) {
         removeMatchStats(match);
@@ -1951,6 +1906,7 @@ function deleteMatchData(matchId) {
 }
 
 function deleteMatch(matchId) {
+    if (IS_PUBLIC_READONLY) { showReadonlyWarning(); return; }
     if (!confirm(`确定要删除比赛 ${matchId} 吗？`)) return;
     deleteMatchData(matchId);
     updateStatsDisplay();
@@ -2213,3 +2169,4 @@ function renderRadar(containerId, title, indicators, fillColor, borderColor) {
 
 </script>
 </body>
+</html>
