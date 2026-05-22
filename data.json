@@ -1,0 +1,4531 @@
+{
+  "version": "V7",
+  "exportedAt": "2026-05-19T16:07:16.722Z",
+  "event": {
+    "id": "event_1779206126828",
+    "name": "2026明远杯MIL",
+    "createdAt": "2026-05-19T15:54:17.893Z",
+    "startDate": "2026-05-01",
+    "endDate": "",
+    "teams": {
+      "WCYL": [
+        "Kirito",
+        "XG",
+        "YN",
+        "LWJ",
+        "Eolian"
+      ],
+      "ZC": [
+        "XianB",
+        "JiM",
+        "Aria",
+        "YanW",
+        "ChZi",
+        "QF"
+      ],
+      "ACE": [
+        "KING",
+        "SAKE",
+        "rain",
+        "NO",
+        "xiu",
+        "kingdom"
+      ],
+      "DNA": [
+        "QAQ",
+        "Wanq",
+        "Kael",
+        "xpx",
+        "OvO",
+        "polymerase"
+      ],
+      "SAZU": [
+        "fog",
+        "Teddy",
+        "Prime",
+        "SHUAIGE",
+        "axu",
+        "Acer",
+        "focal"
+      ]
+    },
+    "matches": [
+      {
+        "id": "2026MILGroupStage01",
+        "type": "BO3",
+        "teamA": "ACE",
+        "teamB": "SAZU",
+        "rounds": [
+          {
+            "roundNumber": 1,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3656,
+                      "decode": 9,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 66
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5105,
+                      "decode": 100,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 61
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6639,
+                      "decode": 150,
+                      "rescue": 1,
+                      "heal": 2,
+                      "kite": 42
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8690,
+                      "decode": 45,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 83
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 5,
+                      "fearShock": 0,
+                      "knockdown": 10,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 3,
+                      "fearShock": 0,
+                      "knockdown": 8,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6524,
+                      "decode": 204,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 30
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7407,
+                      "decode": 125,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 61
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3813,
+                      "decode": 145,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 17
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2293,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 40
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": 2,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8498,
+                      "decode": 61,
+                      "rescue": 3,
+                      "heal": 0,
+                      "kite": 90
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4291,
+                      "decode": 3,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 68
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6534,
+                      "decode": 195,
+                      "rescue": 1,
+                      "heal": 1,
+                      "kite": 42
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7992,
+                      "decode": 243,
+                      "rescue": 1,
+                      "heal": 1,
+                      "kite": 40
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 3,
+                      "fearShock": 1,
+                      "knockdown": 11,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11310,
+                      "breakBoard": 4,
+                      "fearShock": 1,
+                      "knockdown": 5,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4259,
+                      "decode": 171,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 23
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3295,
+                      "decode": 2,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 60
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5787,
+                      "decode": 182,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 30
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2830,
+                      "decode": 146,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 25
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": 3,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 6,
+                      "fearShock": 1,
+                      "knockdown": 9,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7240,
+                      "decode": 165,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 40
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 10049,
+                      "decode": 163,
+                      "rescue": 3,
+                      "heal": 0,
+                      "kite": 81
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3007,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 61
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6065,
+                      "decode": 258,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 23
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 9492,
+                      "decode": 160,
+                      "rescue": 2,
+                      "heal": 2,
+                      "kite": 85
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8500,
+                      "decode": 129,
+                      "rescue": 1,
+                      "heal": 2,
+                      "kite": 84
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7526,
+                      "decode": 284,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 60
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4382,
+                      "decode": 2,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 70
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11000,
+                      "breakBoard": 2,
+                      "fearShock": 0,
+                      "knockdown": 9,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": null,
+            "isOvertime": true,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 9,
+                      "fearShock": 0,
+                      "knockdown": 11,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6515,
+                      "decode": 63,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 82
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 12000,
+                      "decode": 166,
+                      "rescue": 3,
+                      "heal": 0,
+                      "kite": 136
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 12000,
+                      "decode": 213,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 100
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8707,
+                      "decode": 237,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 40
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6016,
+                      "decode": 102,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 69
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3736,
+                      "decode": 120,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 32
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8311,
+                      "decode": 207,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 53
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4497,
+                      "decode": 2,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 80
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "fog",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Teddy",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Prime",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SHUAIGE",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "axu",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Acer",
+                    "team": "SAZU",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "focal",
+                    "team": "SAZU",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11300,
+                      "breakBoard": 3,
+                      "fearShock": 0,
+                      "knockdown": 7,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "mvpPlayer": "focal",
+        "timestamp": "2026-05-01T21:00"
+      },
+      {
+        "id": "2026MILGroupStage02",
+        "type": "BO3",
+        "teamA": "DNA",
+        "teamB": "ZC",
+        "rounds": [
+          {
+            "roundNumber": 1,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5879,
+                      "decode": 142,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 64
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 6526,
+                      "decode": 163,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 53
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2386,
+                      "decode": 5,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 32
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7862,
+                      "decode": 153,
+                      "rescue": 1,
+                      "heal": 1,
+                      "kite": 56
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 10798,
+                      "breakBoard": 1,
+                      "fearShock": 1,
+                      "knockdown": 7,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11300,
+                      "breakBoard": 2,
+                      "fearShock": 0,
+                      "knockdown": 10,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7888,
+                      "decode": 15,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 122
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7626,
+                      "decode": 138,
+                      "rescue": 1,
+                      "heal": 1,
+                      "kite": 77
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7458,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 99
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4832,
+                      "decode": 200,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 22
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": 2,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8657,
+                      "decode": 186,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 44
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7411,
+                      "decode": 52,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 93
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5621,
+                      "decode": 181,
+                      "rescue": 0,
+                      "heal": 3,
+                      "kite": 12
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 10382,
+                      "decode": 136,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 121
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11009,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 5,
+                      "eliminate": 2,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11400,
+                      "breakBoard": 2,
+                      "fearShock": 0,
+                      "knockdown": 7,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7424,
+                      "decode": 169,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 85
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 871,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 41
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2879,
+                      "decode": 56,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 53
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7173,
+                      "decode": 200,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 35
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": 3,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 10263,
+                      "decode": 243,
+                      "rescue": 1,
+                      "heal": 3,
+                      "kite": 28
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2266,
+                      "decode": 87,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 10
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 10158,
+                      "decode": 251,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8275,
+                      "decode": 187,
+                      "rescue": 2,
+                      "heal": 2,
+                      "kite": 20
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 1,
+                      "fearShock": 1,
+                      "knockdown": 10,
+                      "eliminate": 1,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "QAQ",
+                    "team": "DNA",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 1,
+                      "fearShock": 0,
+                      "knockdown": 8,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Wanq",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Kael",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xpx",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "OvO",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "polymerase",
+                    "team": "DNA",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "XianB",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 1890,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 31
+                    }
+                  },
+                  {
+                    "name": "JiM",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Aria",
+                    "team": "ZC",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YanW",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5889,
+                      "decode": 126,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 52
+                    }
+                  },
+                  {
+                    "name": "ChZi",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5303,
+                      "decode": 137,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 33
+                    }
+                  },
+                  {
+                    "name": "QF",
+                    "team": "ZC",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2787,
+                      "decode": 70,
+                      "rescue": 0,
+                      "heal": 1,
+                      "kite": 30
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "mvpPlayer": "QAQ",
+        "timestamp": "2026-05-02T17:00"
+      },
+      {
+        "id": "2026MILGroupStage03",
+        "type": "BO3",
+        "teamA": "WCYL",
+        "teamB": "ACE",
+        "rounds": [
+          {
+            "roundNumber": 1,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "Kirito",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8501,
+                      "decode": 174,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 78
+                    }
+                  },
+                  {
+                    "name": "XG",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5259,
+                      "decode": 130,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 43
+                    }
+                  },
+                  {
+                    "name": "YN",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2446,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 41
+                    }
+                  },
+                  {
+                    "name": "LWJ",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Eolian",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 7866,
+                      "decode": 200,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 32
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 2,
+                      "fearShock": 0,
+                      "knockdown": 9,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "Kirito",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "XG",
+                    "team": "WCYL",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 8123,
+                      "breakBoard": 0,
+                      "fearShock": 1,
+                      "knockdown": 4,
+                      "eliminate": 2,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YN",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "LWJ",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Eolian",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4868,
+                      "decode": 100,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 21
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5527,
+                      "decode": 200,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 3
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 5963,
+                      "decode": 12,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 115
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 4396,
+                      "decode": 188,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 19
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "roundNumber": 2,
+            "isOvertime": false,
+            "submitted": true,
+            "halves": {
+              "first": {
+                "teamA": [
+                  {
+                    "name": "Kirito",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "XG",
+                    "team": "WCYL",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 12000,
+                      "breakBoard": 6,
+                      "fearShock": 2,
+                      "knockdown": 9,
+                      "eliminate": 3,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "YN",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "LWJ",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Eolian",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 12000,
+                      "decode": 162,
+                      "rescue": 2,
+                      "heal": 0,
+                      "kite": 129
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 9257,
+                      "decode": 213,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 49
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2519,
+                      "decode": 3,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 41
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 8799,
+                      "decode": 162,
+                      "rescue": 2,
+                      "heal": 3,
+                      "kite": 129
+                    }
+                  }
+                ]
+              },
+              "second": {
+                "teamA": [
+                  {
+                    "name": "Kirito",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3115,
+                      "decode": 45,
+                      "rescue": 1,
+                      "heal": 0,
+                      "kite": 23
+                    }
+                  },
+                  {
+                    "name": "XG",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2526,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 44
+                    }
+                  },
+                  {
+                    "name": "YN",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 3600,
+                      "decode": 113,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 38
+                    }
+                  },
+                  {
+                    "name": "LWJ",
+                    "team": "WCYL",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "Eolian",
+                    "team": "WCYL",
+                    "role": "survivor",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 2232,
+                      "decode": 108,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 15
+                    }
+                  }
+                ],
+                "teamB": [
+                  {
+                    "name": "KING",
+                    "team": "ACE",
+                    "role": "hunter",
+                    "stats": {
+                      "hunterScore": 11168,
+                      "breakBoard": 3,
+                      "fearShock": 1,
+                      "knockdown": 6,
+                      "eliminate": 4,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "SAKE",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "rain",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "NO",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "xiu",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  },
+                  {
+                    "name": "kingdom",
+                    "team": "ACE",
+                    "role": "none",
+                    "stats": {
+                      "hunterScore": 0,
+                      "breakBoard": 0,
+                      "fearShock": 0,
+                      "knockdown": 0,
+                      "eliminate": 0,
+                      "survivorScore": 0,
+                      "decode": 0,
+                      "rescue": 0,
+                      "heal": 0,
+                      "kite": 0
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "mvpPlayer": "KING",
+        "timestamp": "2026-05-02T21:00"
+      }
+    ],
+    "playerStats": {
+      "KING": {
+        "team": "ACE",
+        "matches": [
+          "2026MILGroupStage01",
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 1,
+        "hunterHalfs": 6,
+        "hunterTotal": {
+          "hunterScore": 70478,
+          "breakBoard": 27,
+          "fearShock": 3,
+          "knockdown": 48,
+          "eliminate": 24
+        },
+        "survivorHalfs": 6,
+        "survivorTotal": {
+          "survivorScore": 44530,
+          "decode": 594,
+          "rescue": 9,
+          "heal": 2,
+          "kite": 460
+        }
+      },
+      "SAKE": {
+        "team": "ACE",
+        "matches": [
+          "2026MILGroupStage01",
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 5,
+        "survivorTotal": {
+          "survivorScore": 27159,
+          "decode": 552,
+          "rescue": 1,
+          "heal": 2,
+          "kite": 248
+        }
+      },
+      "xiu": {
+        "team": "ACE",
+        "matches": [
+          "2026MILGroupStage01",
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 6,
+        "survivorTotal": {
+          "survivorScore": 37492,
+          "decode": 851,
+          "rescue": 4,
+          "heal": 3,
+          "kite": 353
+        }
+      },
+      "kingdom": {
+        "team": "ACE",
+        "matches": [
+          "2026MILGroupStage01",
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 6,
+        "survivorTotal": {
+          "survivorScore": 38756,
+          "decode": 642,
+          "rescue": 5,
+          "heal": 4,
+          "kite": 421
+        }
+      },
+      "focal": {
+        "team": "SAZU",
+        "matches": [
+          "2026MILGroupStage01"
+        ],
+        "mvpCount": 1,
+        "hunterHalfs": 4,
+        "hunterTotal": {
+          "hunterScore": 46300,
+          "breakBoard": 13,
+          "fearShock": 1,
+          "knockdown": 37,
+          "eliminate": 16
+        },
+        "survivorHalfs": 0,
+        "survivorTotal": {
+          "survivorScore": 0,
+          "decode": 0,
+          "rescue": 0,
+          "heal": 0,
+          "kite": 0
+        }
+      },
+      "fog": {
+        "team": "SAZU",
+        "matches": [
+          "2026MILGroupStage01"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 4,
+        "survivorTotal": {
+          "survivorScore": 24538,
+          "decode": 603,
+          "rescue": 3,
+          "heal": 0,
+          "kite": 175
+        }
+      },
+      "Teddy": {
+        "team": "SAZU",
+        "matches": [
+          "2026MILGroupStage01"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 4,
+        "survivorTotal": {
+          "survivorScore": 32751,
+          "decode": 456,
+          "rescue": 7,
+          "heal": 0,
+          "kite": 338
+        }
+      },
+      "Prime": {
+        "team": "SAZU",
+        "matches": [
+          "2026MILGroupStage01"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 4,
+        "survivorTotal": {
+          "survivorScore": 24607,
+          "decode": 540,
+          "rescue": 4,
+          "heal": 0,
+          "kite": 208
+        }
+      },
+      "SHUAIGE": {
+        "team": "SAZU",
+        "matches": [
+          "2026MILGroupStage01"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 4,
+        "survivorTotal": {
+          "survivorScore": 19895,
+          "decode": 641,
+          "rescue": 0,
+          "heal": 0,
+          "kite": 128
+        }
+      },
+      "QAQ": {
+        "team": "DNA",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 1,
+        "hunterHalfs": 3,
+        "hunterTotal": {
+          "hunterScore": 34700,
+          "breakBoard": 5,
+          "fearShock": 0,
+          "knockdown": 25,
+          "eliminate": 12
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 24799,
+          "decode": 571,
+          "rescue": 3,
+          "heal": 3,
+          "kite": 136
+        }
+      },
+      "Kael": {
+        "team": "DNA",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 14413,
+          "decode": 431,
+          "rescue": 0,
+          "heal": 3,
+          "kite": 75
+        }
+      },
+      "xpx": {
+        "team": "DNA",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 22926,
+          "decode": 392,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 153
+        }
+      },
+      "OvO": {
+        "team": "DNA",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 2,
+        "survivorTotal": {
+          "survivorScore": 16137,
+          "decode": 340,
+          "rescue": 3,
+          "heal": 3,
+          "kite": 76
+        }
+      },
+      "XianB": {
+        "team": "ZC",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 2,
+        "hunterTotal": {
+          "hunterScore": 21807,
+          "breakBoard": 1,
+          "fearShock": 1,
+          "knockdown": 12,
+          "eliminate": 6
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 17202,
+          "decode": 184,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 238
+        }
+      },
+      "YanW": {
+        "team": "ZC",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 14386,
+          "decode": 264,
+          "rescue": 2,
+          "heal": 1,
+          "kite": 170
+        }
+      },
+      "ChZi": {
+        "team": "ZC",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 15640,
+          "decode": 193,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 185
+        }
+      },
+      "QF": {
+        "team": "ZC",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 1,
+        "hunterTotal": {
+          "hunterScore": 12000,
+          "breakBoard": 1,
+          "fearShock": 1,
+          "knockdown": 10,
+          "eliminate": 1
+        },
+        "survivorHalfs": 3,
+        "survivorTotal": {
+          "survivorScore": 14792,
+          "decode": 470,
+          "rescue": 0,
+          "heal": 1,
+          "kite": 87
+        }
+      },
+      "Wanq": {
+        "team": "DNA",
+        "matches": [
+          "2026MILGroupStage02"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 1,
+        "survivorTotal": {
+          "survivorScore": 7411,
+          "decode": 52,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 93
+        }
+      },
+      "Kirito": {
+        "team": "WCYL",
+        "matches": [
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 2,
+        "survivorTotal": {
+          "survivorScore": 11616,
+          "decode": 219,
+          "rescue": 2,
+          "heal": 0,
+          "kite": 101
+        }
+      },
+      "XG": {
+        "team": "WCYL",
+        "matches": [
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 2,
+        "hunterTotal": {
+          "hunterScore": 20123,
+          "breakBoard": 6,
+          "fearShock": 3,
+          "knockdown": 13,
+          "eliminate": 5
+        },
+        "survivorHalfs": 2,
+        "survivorTotal": {
+          "survivorScore": 7785,
+          "decode": 130,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 87
+        }
+      },
+      "YN": {
+        "team": "WCYL",
+        "matches": [
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 2,
+        "survivorTotal": {
+          "survivorScore": 6046,
+          "decode": 113,
+          "rescue": 0,
+          "heal": 0,
+          "kite": 79
+        }
+      },
+      "Eolian": {
+        "team": "WCYL",
+        "matches": [
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 2,
+        "survivorTotal": {
+          "survivorScore": 10098,
+          "decode": 308,
+          "rescue": 2,
+          "heal": 0,
+          "kite": 47
+        }
+      },
+      "rain": {
+        "team": "ACE",
+        "matches": [
+          "2026MILGroupStage03"
+        ],
+        "mvpCount": 0,
+        "hunterHalfs": 0,
+        "hunterTotal": {
+          "hunterScore": 0,
+          "breakBoard": 0,
+          "fearShock": 0,
+          "knockdown": 0,
+          "eliminate": 0
+        },
+        "survivorHalfs": 1,
+        "survivorTotal": {
+          "survivorScore": 9257,
+          "decode": 213,
+          "rescue": 1,
+          "heal": 0,
+          "kite": 49
+        }
+      }
+    }
+  }
+}
